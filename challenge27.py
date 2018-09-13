@@ -1,6 +1,20 @@
 #!/usr/bin python
 # -*- coding: utf-8 -*-
 #
+# Copyright 2018 David Kind
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may not
+# use this file except in compliance with the License. You may obtain a copy
+# of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations under
+# the License.
+#
 # This template script comes with command line interface and logging.
 # Schlumberger Private
 
@@ -13,6 +27,12 @@ Ref: Challenge_Problem-27.docx
 
 Solution uses a Genetic Algorithm to optimise the problem.
 '''
+
+# TODO:
+# 1) Fix the domino colours, it look wrong.
+# 2) Add a graph to show the progress.
+# 3) Fix the cross-over so that it is alternating; does this make a difference.
+
 import os
 import sys
 import platform
@@ -27,9 +47,9 @@ from filterpy.monte_carlo import stratified_resample
 import numpy as np
 
 __author__ = 'David Kind'
-__date__ = '29-07-2018'
-__version__ = '1.2'
-__copyright__ = 'Copyright (c) 2018 Schlumberger'
+__date__ = '13-09-2018'
+__version__ = '1.3'
+__copyright__ = 'http://www.apache.org/licenses/LICENSE-2.0'
 
 
 if not hasattr(sys, "hexversion") or sys.hexversion < 0x02070600:
@@ -56,9 +76,9 @@ GRID_SIZE = X_WIDTH * Y_HEIGHT
 #
 INDIVIDUAL_MUTATION_RATE = float(0.10)  # (%) of individual to mutate
 POPULATION_MUTATION_RATE = float(0.5)   # (%) of population to mutate
-POPULATION_SIZE = int(100)              # The total number of individuals
+POPULATION_SIZE = int(10000)            # The total number of individuals
                                         # Must be an even number.
-GENERATIONS_MAX = int(100)              # The total number of generations
+GENERATIONS_MAX = int(1000)             # The total number of generations
 NUM_SHAPES = 3              # Defined shapes
 GRID_SPACE = 0              # Empty square
 GRID_HDOMINO = 128          # Horizontal domino
@@ -146,7 +166,8 @@ class CIndividual(object):
                 else:
                     vdomino_ok = False
                 #
-                # Set the contents of the current grid location
+                # Set the contents of the current grid location using the
+                # stored value if possible.
                 #
                 if value == GRID_SPACE and space_ok:
                     # Empty space is OK
@@ -162,22 +183,36 @@ class CIndividual(object):
                     self.grid[row + 1, col] = GRID_VDOMINO
                     self.dominoes += 1
                 else:
-                    # Need to try and fit a shape to this location
+                    # Need to try and fit a shape to this location.
+                    # The current value (shape) does not fit.
+                    # The preference is to select a space if ok to do so.
+                    # If a space is not OK then we need to randomly select a
+                    # domino if possible.
                     if space_ok:
                         self.spaces += 1
                         self.gene[idx] = GRID_SPACE
-                    elif hdomino_ok:
-                        # Horizontal domino OK
-                        self.gene[idx] = GRID_HDOMINO
-                        self.grid[row, col] = GRID_HDOMINO
-                        self.grid[row, col + 1] = GRID_HDOMINO
-                        self.dominoes += 1
-                    elif vdomino_ok:
-                        # Vertical domino OK
-                        self.gene[idx] = GRID_VDOMINO
-                        self.grid[row, col] = GRID_VDOMINO
-                        self.grid[row + 1, col] = GRID_VDOMINO
-                        self.dominoes += 1
+                    elif hdomino_ok or vdomino_ok:
+                        # If both domino types are ok then we need to randomly
+                        # select one to avoid any kind of resultant bias.
+                        # This is done by forcing only one of the dominoes to
+                        # to be OK.
+                        if hdomino_ok and vdomino_ok:
+                            if randint(0,1):
+                                hdomino_ok = False
+                            else:
+                                vdomino_ok = False
+                        if hdomino_ok:
+                            # Horizontal domino OK
+                            self.gene[idx] = GRID_HDOMINO
+                            self.grid[row, col] = GRID_HDOMINO
+                            self.grid[row, col + 1] = GRID_HDOMINO
+                            self.dominoes += 1
+                        else: # vdomino_ok:
+                            # Vertical domino OK
+                            self.gene[idx] = GRID_VDOMINO
+                            self.grid[row, col] = GRID_VDOMINO
+                            self.grid[row + 1, col] = GRID_VDOMINO
+                            self.dominoes += 1
                     else:
                         # Nothing is OK, but we have a space either above or to
                         # the left so can replace that with a domino. This is
@@ -256,6 +291,10 @@ def main(time_execution):
 
         # Create a new copy of the next generation
         population = deepcopy(nwpop)
+        # Show progress
+        print ".",
+    # New line so the output look tidy.
+    print "\n"
     # Are we on the timer?
     if time_execution:
         print "Script execution time:", time.time() - START, "seconds"
