@@ -28,10 +28,15 @@ each other side on.
 '''
 
 # TODO:
-# 1) Fix the domino colours, they look wrong.
+# 1) Fix the domino colours, they look wrong.                                   (only if I have time)
 # 2) Add a graph to show the GA progress.
 # 3) Fix the cross-over so that it is alternating; does this make a difference.
 #    Could add different methods and compare them.
+# 4) Modify the script to use a preference for the domino/hole placement.
+#    Use this code to remove the population creation biases.
+# 5) Check the mutation code.
+#
+
 
 import os
 import sys
@@ -68,7 +73,7 @@ SCRIPTINFO = "{} version: {}, {}".format(SCRIPTNAME, __version__, __date__)
 # Grid defines; modify these values to change the grid size to optimise.
 #
 X_WIDTH = int(10)
-Y_HEIGHT = int(8)
+Y_HEIGHT = int(6)
 GRID_SIZE = X_WIDTH * Y_HEIGHT
 
 #
@@ -76,7 +81,7 @@ GRID_SIZE = X_WIDTH * Y_HEIGHT
 #
 INDIVIDUAL_MUTATION_RATE = float(0.10)  # (%) of individual to mutate
 POPULATION_MUTATION_RATE = float(0.5)   # (%) of population to mutate
-POPULATION_SIZE = int(1000)             # The total number of individuals
+POPULATION_SIZE = int(100)              # The total number of individuals
                                         # Must be an even number.
 
 GENERATIONS_MAX = int(1000)             # The total number of generations
@@ -85,6 +90,7 @@ GRID_SPACE = 0                          # Empty square
 GRID_HDOMINO = 128                      # Horizontal domino
 GRID_VDOMINO = 255                      # Vertical domino
 
+#################################################################### TODO: Implement me!
 # Defined algorithm preferences
 # Total must equal 1.0 (100%), where the preference is greater and equal to the
 # minimum value, and less than the maximum value.
@@ -141,10 +147,10 @@ class CIndividual(object):
 
     def fit_to_grid(self):
         '''
-        Fits the gene to the grid correcting any issues so that the resulting
-        pattern is acceptable; this could mean replacing/removing/adding some
-        of the shapes. The resultant grid contains only 1s and 0s, where 1
-        represents a dominoe and 0 represents a hole.
+        Fits the gene to a blank grid correcting any issues so that the
+        resulting pattern is acceptable; this could mean replacing/removing or
+        adding some of the shapes. The resultant grid contains only 0s and
+        values > 1, where values > 1 represent a domino and 0 represents a hole.
         Check for:
           (1) empty spaces next to each other, testing above and left only.
           (2) replacing overlapping dominoes.
@@ -198,6 +204,7 @@ class CIndividual(object):
                     self.grid[row + 1, col] = GRID_VDOMINO
                     self.dominoes += 1
                 else:
+##### TODO: Get rid of this bias!
                     # Need to try and fit a shape to this location.
                     # The current value (shape) does not fit.
                     # The preference is to select a space if ok to do so.
@@ -254,6 +261,21 @@ class CIndividual(object):
                             self.grid[row, col] = GRID_VDOMINO
                 idx += 1 # Look at the next gene element
 
+    def display_grid(self):
+        '''
+        Displays the resultant grid showing the holes and dominoes of the
+        individual.
+        '''
+        _, ax = plt.subplots()
+        ax.imshow(self.grid, cmap=cm.jet, interpolation='nearest')
+        ax.set_xticks([x + 0.5 for x in range(X_WIDTH)])
+        ax.set_yticks([y + 0.5 for y in range(Y_HEIGHT)])
+        ax.grid(which='major', linestyle='-', linewidth='0.5', color='red')
+        msg = "({} x {}) {} spaces, {} dominoes" \
+            .format(X_WIDTH, Y_HEIGHT, self.spaces, self.dominoes)
+        plt.title(msg)
+        plt.show()
+
     def __str__(self):
         # Return a the resultant order n checker-board
         outstr = "\n{}\nfitness={}%".format(self.gene, self.weight)
@@ -292,19 +314,14 @@ def calc_solution_holes(x_coord, y_coord):
             holes = (x_coord * y_coord - 2) / 3
     return int(holes)
 
-def display_grid(individual):
+def plot_performance(mse_values):
     '''
-    Displays the resultant grid showing the holes and dominoes of the passed in
-    individual.
+    Plot of the performance of the algorithm.
+    mse_values is a list of calculated MSE values for each iterated generation.
     '''
-    _, ax = plt.subplots()
-    ax.imshow(individual.grid, cmap=cm.jet, interpolation='nearest')
-    ax.set_xticks([x + 0.5 for x in range(X_WIDTH)])
-    ax.set_yticks([y + 0.5 for y in range(Y_HEIGHT)])
-    ax.grid(which='major', linestyle='-', linewidth='0.5', color='red')
-    msg = "({} x {}) {} spaces, {} dominoes" \
-        .format(X_WIDTH, Y_HEIGHT, individual.spaces, individual.dominoes)
-    plt.title(msg)
+    plt.plot(mse_values)
+    plt.ylabel('MSE')
+    plt.xlabel('Generations')
     plt.show()
 
 
@@ -331,8 +348,11 @@ def main(time_execution):
     #
     print "Executing the GA over {} generations.".format(GENERATIONS_MAX)
     most_spaces = 0
+    mse_values = []
+    mse_values.append(max_holes ** 2)
     firsthalf = GRID_SIZE / 2
     for _ in range(GENERATIONS_MAX):
+        mse = 0.0
         total_weighting = 0
         for individual in range(POPULATION_SIZE):
             # Mutate the individual
@@ -343,7 +363,12 @@ def main(time_execution):
                 best = deepcopy(population[individual])
                 most_spaces = population[individual].spaces
 #                print best
+            # Calculate the mse running total
+            mse += (max_holes - population[individual].spaces) ** 2
 
+        # Now calculate and store the Mean Squared Error
+        mse = mse / POPULATION_SIZE
+        mse_values.append(mse)
         # Quit if the problem has been solved.
         if most_spaces == max_holes:
             break
@@ -385,7 +410,12 @@ def main(time_execution):
     #
     # Display the domino grid; it's a bit rough and ready.
     #
-    display_grid(best)
+    best.display_grid()
+    #
+    # Display the GAs overall performance.
+    #
+    plot_performance(mse_values)
+    # DONE.
 
 
 if __name__ == '__main__':
