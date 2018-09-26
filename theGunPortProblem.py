@@ -247,7 +247,7 @@ class CIndividual(object):
         outstr += "\n{}".format(self.grid)
         return outstr
 
-def calcSolutionHoles(x, y):
+def calc_solution_holes(x_coord, y_coord):
     '''
     Ref: Knotted Doughnuts and Other Mathematical Entertainments (Book)
          Martin Gardner 1986
@@ -263,33 +263,33 @@ def calcSolutionHoles(x, y):
     the passed in parameter corresponding to the x and y grid dimensions.
     '''
     holes = int(0)
-    # 1) Are x or y divisible by 3
-    if not (x % 3) or not (y % 3):
-        holes = (x * y) / 3
+    # 1) Are x_coord or y_coord divisible by 3
+    if not x_coord % 3 or not y_coord % 3:
+        holes = (x_coord * y_coord) / 3
     else:
-        # Note: to get here we know that neither x or y are divisible by 3.
-        x_const = x - (int(x / 3) * 3)
-        y_const = y - (int(y / 3) * 3)
-        # 2) If x or y both have equal constants
+        # Note: to get here we know that neither x_coord or y_coord are divisible by 3.
+        x_const = x_coord - (int(x_coord / 3) * 3)
+        y_const = y_coord - (int(y_coord / 3) * 3)
+        # 2) If x_coord or y_coord both have equal constants
         if x_const == y_const:
-            holes = (x * y - 4) / 3
-        # 3) If x or y both have unequal constants
+            holes = (x_coord * y_coord - 4) / 3
+        # 3) If x_coord or y_coord both have unequal constants
         else:
-            holes = (x * y - 2) / 3
+            holes = (x_coord * y_coord - 2) / 3
     return int(holes)
 
 
 def main(time_execution):
     '''Main function'''
-    START = time.time()        # Used to time script execution.
+    start = time.time()        # Used to time script execution.
     print 'Running {} with grid ({} x {}):'.format(SCRIPTNAME, X_WIDTH, Y_HEIGHT)
 
     #
     # Calculate solution maximum number of holes.
     #
-    maxHoles = calcSolutionHoles(X_WIDTH, Y_HEIGHT)
+    max_holes = calc_solution_holes(X_WIDTH, Y_HEIGHT)
     print "Maximum number of holes for {} x {} grid is {}." \
-            .format(X_WIDTH, Y_HEIGHT, maxHoles)
+            .format(X_WIDTH, Y_HEIGHT, max_holes)
 
     #
     # Create our initial random population and fit to grid
@@ -303,7 +303,7 @@ def main(time_execution):
     print "Executing the GA over {} generations.".format(GENERATIONS_MAX)
     most_spaces = 0
     firsthalf = GRID_SIZE / 2
-    for x in range(GENERATIONS_MAX):
+    for _ in range(GENERATIONS_MAX):
         total_weighting = 0
         for individual in range(POPULATION_SIZE):
             # Mutate the individual
@@ -316,7 +316,7 @@ def main(time_execution):
 #                print best
 
         # Quit if the problem has been solved.
-        if most_spaces == maxHoles:
+        if most_spaces == max_holes:
             break
 
         # We need to normalise all the population weights.
@@ -345,14 +345,14 @@ def main(time_execution):
         print ".",  # Show progress; that the script is still running.
 
     # Let the user know the result.
-    if most_spaces == maxHoles:
+    if most_spaces == max_holes:
         print "\nSolution Found."
     else:
         print "\nFailed to find a solution."
 
     # Are we on the timer?
     if time_execution:
-        print "Script execution time:", time.time() - START, "seconds"
+        print "Script execution time:", time.time() - start, "seconds"
     #
     # Display the domino grid; it's a bit rough and ready.
     #
