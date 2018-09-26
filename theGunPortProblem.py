@@ -19,19 +19,19 @@
 # Schlumberger Private
 
 '''
-Embedded Computing Challenge 27.
-What is the maximum number of 1 x 1 holes that can be obtained by arranging
-dominoes on an m x n field ?
-Ref: Challenge_Problem-27.docx
-     https://www.yammer.com/slb.com/threads/1124769403
+Genetic Algorithm to solve The Gun Port Problem as first described by
+Sands, B. (1971), The Gunport Problem, Mathematics Magazine, Vol.44, pp.193-196
 
-Solution uses a Genetic Algorithm to optimise the problem.
+This is an optimisation problem to maximise the holes and minimise the number
+number of dominoes in a grid of variable size. Holes are not allowed to touch
+each other side on.
 '''
 
 # TODO:
-# 1) Fix the domino colours, it look wrong.
-# 2) Add a graph to show the progress.
+# 1) Fix the domino colours, they look wrong.
+# 2) Add a graph to show the GA progress.
 # 3) Fix the cross-over so that it is alternating; does this make a difference.
+#    Could add different methods and compare them.
 
 import os
 import sys
@@ -48,7 +48,7 @@ import numpy as np
 
 __author__ = 'David Kind'
 __date__ = '26-09-2018'
-__version__ = '1.4'
+__version__ = '1.5'
 __copyright__ = 'http://www.apache.org/licenses/LICENSE-2.0'
 
 
@@ -80,10 +80,10 @@ POPULATION_SIZE = int(1000)             # The total number of individuals
                                         # Must be an even number.
 
 GENERATIONS_MAX = int(1000)             # The total number of generations
-NUM_SHAPES = 3              # Defined shapes
-GRID_SPACE = 0              # Empty square
-GRID_HDOMINO = 128          # Horizontal domino
-GRID_VDOMINO = 255          # Vertical domino
+NUM_SHAPES = 3                          # Defined shapes
+GRID_SPACE = 0                          # Empty square
+GRID_HDOMINO = 128                      # Horizontal domino
+GRID_VDOMINO = 255                      # Vertical domino
 
 
 class CIndividual(object):
