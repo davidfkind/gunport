@@ -29,7 +29,6 @@ each other side on.
 
 # TODO:
 # 1) Fix the domino colours, they look wrong.                                   (only if I have time)
-# 2) Add a graph to show the GA progress.
 # 3) Fix the cross-over so that it is alternating; does this make a difference.
 #    Could add different methods and compare them.
 # 4) Modify the script to use a preference for the domino/hole placement.
@@ -90,21 +89,6 @@ GRID_SPACE = 0                          # Empty square
 GRID_HDOMINO = 128                      # Horizontal domino
 GRID_VDOMINO = 255                      # Vertical domino
 
-#################################################################### TODO: Implement me!
-# Defined algorithm preferences
-# Total must equal 1.0 (100%), where the preference is greater and equal to the
-# minimum value, and less than the maximum value.
-PSPACE = 0.4
-PHDOMINO = 0.4
-PVDOMINO = 0.2
-# Preference for Empty square
-PREF_SPACE = (0.0, PSPACE)
-# Preference for Horizontal domino
-PREF_HDOMINO = (PSPACE, (PSPACE + PHDOMINO))
-# Preference for Vertical domino
-PREF_VDOMINO = ((PSPACE + PHDOMINO), 1.0)
-
-
 
 class CIndividual(object):
     '''
@@ -157,109 +141,116 @@ class CIndividual(object):
           (3) removing unused genes from the end of the list.
         '''
         self.grid = np.zeros((Y_HEIGHT, X_WIDTH))
-        self.spaces = int(0)
-        self.dominoes = int(0)
-        idx = 0
+        self.spaces = int(0)    # Running total of spaces in grid
+        self.dominoes = int(0)  # Running total of dominoes in grid
+        idx = 0                 # Gene index
         for row in range(Y_HEIGHT):
             for col in range(X_WIDTH):
-                value = self.gene[idx]
                 #
                 # Is the grid location already occupied
                 #
                 if self.grid[row, col] != GRID_SPACE:
                     # It is occupied move along to the next position
                     continue
-                # Set up some booleans to help us make decisions on the placement
-                # Are we ok to place have an empty space?
-                if (col > 0 and self.grid[row, col - 1] == GRID_SPACE) or \
-                    (row > 0 and self.grid[row - 1, col] == GRID_SPACE):
-                    space_ok = False
-                else:
-                    space_ok = True
-                # Are we ok to have a horizontal domino?
-                if col < X_WIDTH - 1 and self.grid[row, col + 1] == GRID_SPACE:
-                    hdomino_ok = True
-                else:
-                    hdomino_ok = False
-                # Are we ok to have a vertical domino?
-                if row < Y_HEIGHT - 1:
-                    vdomino_ok = True
-                else:
-                    vdomino_ok = False
+                # Set up some booleans to help us make decisions on the
+                # placement. The booleans represent the 3x types:
+                # hole, vertical domino and horizontal domino. If True then
+                # this shape can be fitted to the specified location in the
+                # grid.
+                sp_ok, hd_ok, vd_ok = self.check_grid(row, col)
+                # Create a list of shapes that can be placed at this location.
+                ok_shapes = []
+                if sp_ok:
+                    ok_shapes.append(GRID_SPACE)
+                if hd_ok:
+                    ok_shapes.append(GRID_HDOMINO)
+                if vd_ok:
+                    ok_shapes.append(GRID_VDOMINO)
                 #
                 # Set the contents of the current grid location using the
                 # stored value if possible.
                 #
-                if value == GRID_SPACE and space_ok:
-                    # Empty space is OK
-                    self.spaces += 1
-                elif value == GRID_HDOMINO and hdomino_ok:
-                    # Horizontal domino OK
-                    self.grid[row, col] = GRID_HDOMINO
-                    self.grid[row, col + 1] = GRID_HDOMINO
-                    self.dominoes += 1
-                elif value == GRID_VDOMINO and vdomino_ok:
-                    # Vertical domino OK
-                    self.grid[row, col] = GRID_VDOMINO
-                    self.grid[row + 1, col] = GRID_VDOMINO
-                    self.dominoes += 1
+                num_ok_shapes = len(ok_shapes)
+                if self.gene[idx] in ok_shapes:
+                    self.set_grid(row, col, self.gene[idx])
+                # The current value (shape) does not fit.
+                # Need to try and fit a shape to this location and other shapes
+                # are able to fit in this grid location.
+                elif num_ok_shapes:
+                    # Need to randomly select a shape to place in this location
+                    # from the shapes that are available.
+                    val = ok_shapes[randint(0, num_ok_shapes - 1)]
+                    self.set_grid(row, col, val)
+                # Nothing is OK, but we have a space either above or to
+                # the left so can replace that with a domino. This is
+                # in all likelyhood the last grid square.
                 else:
-##### TODO: Get rid of this bias!
-                    # Need to try and fit a shape to this location.
-                    # The current value (shape) does not fit.
-                    # The preference is to select a space if ok to do so.
-                    # If a space is not OK then we need to randomly select a
-                    # domino if possible.
-                    if space_ok:
-                        self.spaces += 1
-                        self.gene[idx] = GRID_SPACE
-                    elif hdomino_ok or vdomino_ok:
-                        # If both domino types are ok then we need to randomly
-                        # select one to avoid any kind of resultant bias.
-                        # This is done by forcing only one of the dominoes to
-                        # to be OK.
-                        if hdomino_ok and vdomino_ok:
-                            if randint(0,1):
-                                hdomino_ok = False
-                            else:
-                                vdomino_ok = False
-                        if hdomino_ok:
-                            # Horizontal domino OK
-                            self.gene[idx] = GRID_HDOMINO
-                            self.grid[row, col] = GRID_HDOMINO
-                            self.grid[row, col + 1] = GRID_HDOMINO
-                            self.dominoes += 1
-                        else: # vdomino_ok:
-                            # Vertical domino OK
-                            self.gene[idx] = GRID_VDOMINO
-                            self.grid[row, col] = GRID_VDOMINO
-                            self.grid[row + 1, col] = GRID_VDOMINO
-                            self.dominoes += 1
+                    self.spaces -= 1
+                    self.dominoes += 1
+                    if col > 0 and self.grid[row, col - 1] == GRID_SPACE:
+                        # Horizontal domino
+                        self.gene[idx - 1] = GRID_HDOMINO
+                        self.grid[row, col - 1] = GRID_HDOMINO
+                        self.grid[row, col] = GRID_HDOMINO
                     else:
-                        # Nothing is OK, but we have a space either above or to
-                        # the left so can replace that with a domino. This is
-                        # in all likelyhood the last grid square.
-                        self.spaces -= 1
-                        self.dominoes += 1
-                        if col > 0 and self.grid[row, col - 1] == GRID_SPACE:
-                            # Horizontal domino
-                            self.gene[idx - 1] = GRID_HDOMINO
-                            self.grid[row, col - 1] = GRID_HDOMINO
-                            self.grid[row, col] = GRID_HDOMINO
-                        else:
-                            # Vertical domino
-                            # Update the gene with a vertical domino, this is
-                            # a little more tricky than simply adding a
-                            # horizontal domino, we have to scan back to the
-                            # last vertical domino and replace the space with a
-                            # vertical domino.
-                            for idxnew in range(idx, -1, -1):
-                                if self.gene[idxnew] == GRID_VDOMINO:
-                                    self.gene[idxnew + 1] = GRID_VDOMINO
-                                    break
-                            self.grid[row - 1, col] = GRID_VDOMINO
-                            self.grid[row, col] = GRID_VDOMINO
+                        # Vertical domino
+                        # Update the gene with a vertical domino, this is
+                        # a little more tricky than simply adding a
+                        # horizontal domino, we have to scan back to the
+                        # last vertical domino and replace the space with a
+                        # vertical domino.
+                        for idxnew in range(idx, -1, -1):
+                            if self.gene[idxnew] == GRID_VDOMINO:
+                                self.gene[idxnew + 1] = GRID_VDOMINO
+                                break
+                        self.grid[row - 1, col] = GRID_VDOMINO
+                        self.grid[row, col] = GRID_VDOMINO
                 idx += 1 # Look at the next gene element
+
+    def check_grid(self, row, col):
+        '''
+        Returns 3x booleans which represent the 3x types: hole, vertical domino
+        and horizontal domino. If True then this shape can be fitted to the
+        specified location in the grid.
+        sp_ok (space/hole):         True=OK to fit to grid; False=Not OK to fit.
+        hd_ok (horizontal domino):  True=OK to fit to grid; False=Not OK to fit.
+        vd_ok (vertical domino):    True=OK to fit to grid; False=Not OK to fit.
+        '''
+        # Are we ok to place have an empty space?
+        if (col > 0 and self.grid[row, col - 1] == GRID_SPACE) or \
+            (row > 0 and self.grid[row - 1, col] == GRID_SPACE):
+            sp_ok = False
+        else:
+            sp_ok = True
+        # Are we ok to have a horizontal domino?
+        if col < X_WIDTH - 1 and self.grid[row, col + 1] == GRID_SPACE:
+            hd_ok = True
+        else:
+            hd_ok = False
+        # Are we ok to have a vertical domino?
+        if row < Y_HEIGHT - 1:
+            vd_ok = True
+        else:
+            vd_ok = False
+        return sp_ok, hd_ok, vd_ok
+
+    def set_grid(self, row, col, value):
+        '''
+        Set the contents of the current grid location using the value.
+        '''
+        if value == GRID_SPACE:
+            # Empty space is OK
+            self.spaces += 1
+        elif value == GRID_HDOMINO:
+            # Horizontal domino OK
+            self.grid[row, col] = GRID_HDOMINO
+            self.grid[row, col + 1] = GRID_HDOMINO
+            self.dominoes += 1
+        else: # value == GRID_VDOMINO:
+            # Vertical domino OK
+            self.grid[row, col] = GRID_VDOMINO
+            self.grid[row + 1, col] = GRID_VDOMINO
+            self.dominoes += 1
 
     def display_grid(self):
         '''
@@ -362,7 +353,7 @@ def main(time_execution):
             if population[individual].spaces > most_spaces:
                 best = deepcopy(population[individual])
                 most_spaces = population[individual].spaces
-#                print best
+                print best
             # Calculate the mse running total
             mse += (max_holes - population[individual].spaces) ** 2
 
