@@ -47,8 +47,8 @@ from filterpy.monte_carlo import stratified_resample
 import numpy as np
 
 __author__ = 'David Kind'
-__date__ = '13-09-2018'
-__version__ = '1.3'
+__date__ = '26-09-2018'
+__version__ = '1.4'
 __copyright__ = 'http://www.apache.org/licenses/LICENSE-2.0'
 
 
@@ -67,8 +67,8 @@ SCRIPTINFO = "{} version: {}, {}".format(SCRIPTNAME, __version__, __date__)
 #
 # Grid defines; modify these values to change the grid size to optimise.
 #
-X_WIDTH = int(20)
-Y_HEIGHT = int(4)
+X_WIDTH = int(10)
+Y_HEIGHT = int(8)
 GRID_SIZE = X_WIDTH * Y_HEIGHT
 
 #
@@ -76,8 +76,9 @@ GRID_SIZE = X_WIDTH * Y_HEIGHT
 #
 INDIVIDUAL_MUTATION_RATE = float(0.10)  # (%) of individual to mutate
 POPULATION_MUTATION_RATE = float(0.5)   # (%) of population to mutate
-POPULATION_SIZE = int(10000)            # The total number of individuals
+POPULATION_SIZE = int(1000)             # The total number of individuals
                                         # Must be an even number.
+
 GENERATIONS_MAX = int(1000)             # The total number of generations
 NUM_SHAPES = 3              # Defined shapes
 GRID_SPACE = 0              # Empty square
@@ -246,14 +247,60 @@ class CIndividual(object):
         outstr += "\n{}".format(self.grid)
         return outstr
 
+def calcSolutionHoles(x, y):
+    '''
+    Ref: Knotted Doughnuts and Other Mathematical Entertainments (Book)
+         Martin Gardner 1986
+    In his book the author summarises the maximum number of holes as dependent
+    on the grid x and y sizes.
+    1) If x or y are divisible by 3 then
+            holes = (x * y) / 3
+    2) If x or y both equal (3 * k + 1) or both equal (3 * k + 2) then
+            holes = (x * y - 4) / 3
+    3) If x or y are equal to (3 * k + 1) and (3 * k + 2) then
+            holes = (x * y - 2) / 3
+    This function calculates the maximum number of holes given the above and
+    the passed in parameter corresponding to the x and y grid dimensions.
+    '''
+    holes = int(0)
+    # 1) Are x or y divisible by 3
+    if not (x % 3) or not (y % 3):
+        holes = (x * y) / 3
+    else:
+        # Note: to get here we know that neither x or y are divisible by 3.
+        x_const = x - (int(x / 3) * 3)
+        y_const = y - (int(y / 3) * 3)
+        # 2) If x or y both have equal constants
+        if x_const == y_const:
+            holes = (x * y - 4) / 3
+        # 3) If x or y both have unequal constants
+        else:
+            holes = (x * y - 2) / 3
+    return int(holes)
+
 
 def main(time_execution):
     '''Main function'''
     START = time.time()        # Used to time script execution.
     print 'Running {} with grid ({} x {}):'.format(SCRIPTNAME, X_WIDTH, Y_HEIGHT)
+
+    #
+    # Calculate solution maximum number of holes.
+    #
+    maxHoles = calcSolutionHoles(X_WIDTH, Y_HEIGHT)
+    print "Maximum number of holes for {} x {} grid is {}." \
+            .format(X_WIDTH, Y_HEIGHT, maxHoles)
+
+    #
     # Create our initial random population and fit to grid
+    #
+    print "Creating the initial population."
     population = [CIndividual() for _ in range(POPULATION_SIZE)]
+
+    #
     # Run GA over GENERATIONS_MAX for each individual
+    #
+    print "Executing the GA over {} generations.".format(GENERATIONS_MAX)
     most_spaces = 0
     firsthalf = GRID_SIZE / 2
     for x in range(GENERATIONS_MAX):
@@ -267,6 +314,10 @@ def main(time_execution):
                 best = deepcopy(population[individual])
                 most_spaces = population[individual].spaces
 #                print best
+
+        # Quit if the problem has been solved.
+        if most_spaces == maxHoles:
+            break
 
         # We need to normalise all the population weights.
         weights = []
@@ -291,10 +342,14 @@ def main(time_execution):
 
         # Create a new copy of the next generation
         population = deepcopy(nwpop)
-        # Show progress
-        print ".",
-    # New line so the output look tidy.
-    print "\n"
+        print ".",  # Show progress; that the script is still running.
+
+    # Let the user know the result.
+    if most_spaces == maxHoles:
+        print "\nSolution Found."
+    else:
+        print "\nFailed to find a solution."
+
     # Are we on the timer?
     if time_execution:
         print "Script execution time:", time.time() - START, "seconds"
