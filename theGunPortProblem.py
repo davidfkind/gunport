@@ -85,6 +85,20 @@ GRID_SPACE = 0                          # Empty square
 GRID_HDOMINO = 128                      # Horizontal domino
 GRID_VDOMINO = 255                      # Vertical domino
 
+# Defined algorithm preferences
+# Total must equal 1.0 (100%), where the preference is greater and equal to the
+# minimum value, and less than the maximum value.
+PSPACE = 0.4
+PHDOMINO = 0.4
+PVDOMINO = 0.2
+# Preference for Empty square
+PREF_SPACE = (0.0, PSPACE)
+# Preference for Horizontal domino
+PREF_HDOMINO = (PSPACE, (PSPACE + PHDOMINO))
+# Preference for Vertical domino
+PREF_VDOMINO = ((PSPACE + PHDOMINO), 1.0)
+
+
 
 class CIndividual(object):
     '''
@@ -278,6 +292,21 @@ def calc_solution_holes(x_coord, y_coord):
             holes = (x_coord * y_coord - 2) / 3
     return int(holes)
 
+def display_grid(individual):
+    '''
+    Displays the resultant grid showing the holes and dominoes of the passed in
+    individual.
+    '''
+    _, ax = plt.subplots()
+    ax.imshow(individual.grid, cmap=cm.jet, interpolation='nearest')
+    ax.set_xticks([x + 0.5 for x in range(X_WIDTH)])
+    ax.set_yticks([y + 0.5 for y in range(Y_HEIGHT)])
+    ax.grid(which='major', linestyle='-', linewidth='0.5', color='red')
+    msg = "({} x {}) {} spaces, {} dominoes" \
+        .format(X_WIDTH, Y_HEIGHT, individual.spaces, individual.dominoes)
+    plt.title(msg)
+    plt.show()
+
 
 def main(time_execution):
     '''Main function'''
@@ -356,15 +385,7 @@ def main(time_execution):
     #
     # Display the domino grid; it's a bit rough and ready.
     #
-    fig, ax = plt.subplots()
-    ax.imshow(best.grid, cmap=cm.jet, interpolation='nearest')
-    ax.set_xticks([x + 0.5 for x in range(X_WIDTH)])
-    ax.set_yticks([y + 0.5 for y in range(Y_HEIGHT)])
-    ax.grid(which='major', linestyle='-', linewidth='0.5', color='red')
-    msg = "({} x {}) {} spaces, {} dominoes" \
-        .format(X_WIDTH, Y_HEIGHT, best.spaces, best.dominoes)
-    plt.title(msg)
-    plt.show()
+    display_grid(best)
 
 
 if __name__ == '__main__':
@@ -381,4 +402,3 @@ if __name__ == '__main__':
     main(ARGS['timer'])
 
 # EOF
-
