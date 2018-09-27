@@ -68,15 +68,15 @@ GRID_SIZE = X_WIDTH * Y_HEIGHT
 # GA Parameters that can be modified to alter performance
 # Note: mutation rate affects the convergence speed.
 #
-MUTATION_RATE = float(0.25)     # (%) mutation rate
-POPULATION_SIZE = int(500)      # The total number of individuals
+MUTATION_RATE = float(0.20)     # (%) mutation rate
+POPULATION_SIZE = int(1000)     # The total number of individuals
                                 # Must be an even number.
 X_RATE = float(0.50)            # Natural selection (%) kept.
 # Calculate the number of mutations to be performed
 # NMUT=ceil((Npop - 1)*Nbits m);
 NMUT = int(MUTATION_RATE * (POPULATION_SIZE - 1) * GRID_SIZE)
 
-GENERATIONS_MAX = int(2000)     # The total number of generations
+GENERATIONS_MAX = int(2500)     # The total number of generations
 NUM_SHAPES = 3                  # Defined shapes
 GRID_SPACE = 0                  # Empty square
 GRID_HDOMINO = 1                # Horizontal domino
@@ -113,8 +113,10 @@ class CIndividual(object):
     def generate_chromosome(self):
         '''
         Generates random values to fill the individual's chromosome.
+        Bias towards holes.
         '''
-        self.chromosome = [randint(0, NUM_SHAPES - 1) for _ in range(GRID_SIZE)]
+        choices = [GRID_SPACE, GRID_HDOMINO, GRID_SPACE, GRID_VDOMINO]
+        self.chromosome = [choices[randint(0, (len(choices) - 1))] for _ in range(GRID_SIZE)]
 
     def mutate(self, pos):
         '''
@@ -414,7 +416,6 @@ def main(time_execution):
                 population[individual].weight = float(population[individual].spaces) / total_weighting
             else:
                 population[individual].weight = float(0.0)
-
         #
         # Implement Natural Selection
         #
@@ -426,6 +427,12 @@ def main(time_execution):
         print "\nSolution Found."
     else:
         print "\nFailed to find a solution."
+#### TODO: remove me: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    print "-" * 80
+    print "Dumping out all the individuals"
+    for individual in range(POPULATION_SIZE):
+        print population[individual]
+#### TODO: remove me: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     # Are we on the timer?
     if time_execution:
