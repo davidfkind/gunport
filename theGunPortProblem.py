@@ -49,7 +49,6 @@ __copyright__ = 'http://www.apache.org/licenses/LICENSE-2.0'
 if not hasattr(sys, "hexversion") or sys.hexversion < 0x02070600:
     print 'Python version:', platform.python_version(), \
         '- I need python 2.7.6 or greater'
-    print 'http://www.python.org/download/releases/2.7.6/'
     exit(1)
 
 #
@@ -69,7 +68,7 @@ GRID_SIZE = X_WIDTH * Y_HEIGHT
 # GA Parameters that can be modified to alter performance
 # Note: mutation rate affects the convergence speed.
 #
-MUTATION_RATE = float(0.20)     # (%) mutation rate
+MUTATION_RATE = float(0.25)     # (%) mutation rate
 POPULATION_SIZE = int(500)      # The total number of individuals
                                 # Must be an even number.
 X_RATE = float(0.50)            # Natural selection (%) kept.
@@ -155,20 +154,11 @@ class CIndividual(object):
                 if self.grid[row, col] != GRID_SPACE:
                     # It is occupied move along to the next position
                     continue
-                # Set up some booleans to help us make decisions on the
-                # placement. The booleans represent the 3x types:
-                # hole, vertical domino and horizontal domino. If True then
-                # this shape can be fitted to the specified location in the
-                # grid.
-                sp_ok, hd_ok, vd_ok = self.check_grid(row, col)
                 # Create a list of shapes that can be placed at this location.
-                ok_shapes = []
-                if sp_ok:
-                    ok_shapes.append(GRID_SPACE)
-                if hd_ok:
-                    ok_shapes.append(GRID_HDOMINO)
-                if vd_ok:
-                    ok_shapes.append(GRID_VDOMINO)
+                # There are 3x types: hole, vertical domino and horizontal
+                # domino. If present then the shape can be fitted to the
+                # specified location in the grid.
+                ok_shapes = self.check_grid(row, col)
                 #
                 # Set the contents of the current grid location using the
                 # stored value if possible.
@@ -215,30 +205,23 @@ class CIndividual(object):
 
     def check_grid(self, row, col):
         '''
-        Returns 3x booleans which represent the 3x types: hole, vertical domino
-        and horizontal domino. If True then this shape can be fitted to the
-        specified location in the grid.
-        sp_ok (space/hole):         True=OK to fit to grid; False=Not OK to fit.
-        hd_ok (horizontal domino):  True=OK to fit to grid; False=Not OK to fit.
-        vd_ok (vertical domino):    True=OK to fit to grid; False=Not OK to fit.
+        Returns a list of valid shapes after verifying whether the shape can be
+        fitted to the specified location in the grid.
+        Shapes are: GRID_SPACE, GRID_HDOMINO, GRID_VDOMINO
         '''
         # Are we ok to place have an empty space?
-        if (col > 0 and self.grid[row, col - 1] == GRID_SPACE) or \
-            (row > 0 and self.grid[row - 1, col] == GRID_SPACE):
-            sp_ok = False
-        else:
-            sp_ok = True
+        result = []
+        if not ((col > 0 and self.grid[row, col - 1] == GRID_SPACE) or \
+            (row > 0 and self.grid[row - 1, col] == GRID_SPACE)):
+            result.append(GRID_SPACE)
+            result.append(GRID_SPACE)
         # Are we ok to have a horizontal domino?
         if col < X_WIDTH - 1 and self.grid[row, col + 1] == GRID_SPACE:
-            hd_ok = True
-        else:
-            hd_ok = False
+            result.append(GRID_HDOMINO)
         # Are we ok to have a vertical domino?
         if row < Y_HEIGHT - 1:
-            vd_ok = True
-        else:
-            vd_ok = False
-        return sp_ok, hd_ok, vd_ok
+            result.append(GRID_VDOMINO)
+        return result
 
     def set_grid(self, row, col, value):
         '''
@@ -413,7 +396,7 @@ def main(time_execution):
             if population[individual].spaces > most_spaces:
                 best = deepcopy(population[individual])
                 most_spaces = population[individual].spaces
-#                print best
+                print best
             # Calculate the mse running total
             mse += (max_holes - population[individual].spaces) ** 2
 
@@ -423,7 +406,6 @@ def main(time_execution):
         # Quit if the problem has been solved.
         if most_spaces == max_holes:
             break
-
         #
         # We need to normalise all the population weights.
         #
