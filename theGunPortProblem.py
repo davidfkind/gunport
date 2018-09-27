@@ -67,13 +67,17 @@ GRID_SIZE = X_WIDTH * Y_HEIGHT
 
 #
 # GA Parameters that can be modified to alter performance
+# Note: mutation rate affects the convergence speed.
 #
-MUTATION_RATE = float(0.03)     # (%) mutation rate
-POPULATION_SIZE = int(100)      # The total number of individuals
+MUTATION_RATE = float(0.20)     # (%) mutation rate
+POPULATION_SIZE = int(500)      # The total number of individuals
                                 # Must be an even number.
 X_RATE = float(0.50)            # Natural selection (%) kept.
+# Calculate the number of mutations to be performed
+# NMUT=ceil((Npop - 1)*Nbits m);
+NMUT = int(MUTATION_RATE * (POPULATION_SIZE - 1) * GRID_SIZE)
 
-GENERATIONS_MAX = int(1000)     # The total number of generations
+GENERATIONS_MAX = int(2000)     # The total number of generations
 NUM_SHAPES = 3                  # Defined shapes
 GRID_SPACE = 0                  # Empty square
 GRID_HDOMINO = 1                # Horizontal domino
@@ -93,9 +97,13 @@ class CIndividual(object):
     grid = None         # Resultant grid with domnoes placed
     spaces = int(0)     # Number of empty spaces in the fitted grid
     dominoes = int(0)   # Number of domonies placed in the fitted grid
+    csize = int(0)      # Number of used chromosome elements
 
     def __init__(self):
         # Initialise the object members
+        self.spaces = int(0)
+        self.dominoes = int(0)
+        self.csize = int(GRID_SIZE)
 
         # Set an initial weighting; we'll be using the number of spaces in
         # each resultant grid for the weighting calculation. This means grids
@@ -138,7 +146,7 @@ class CIndividual(object):
         self.grid = np.zeros((Y_HEIGHT, X_WIDTH))
         self.spaces = int(0)    # Running total of spaces in grid
         self.dominoes = int(0)  # Running total of dominoes in grid
-        idx = 0                 # Gene index
+        idx = 0                 # Chromosome index
         for row in range(Y_HEIGHT):
             for col in range(X_WIDTH):
                 #
@@ -165,7 +173,6 @@ class CIndividual(object):
                 # Set the contents of the current grid location using the
                 # stored value if possible.
                 #
-#                print "ok_shapes={}, self.chromosome[{}]={}".format(ok_shapes, idx, self.chromosome[idx])      ######################### TODO: remove me:
                 num_ok_shapes = len(ok_shapes)
                 if self.chromosome[idx] in ok_shapes:
                     self.set_grid(row, col, self.chromosome[idx])
@@ -177,6 +184,7 @@ class CIndividual(object):
                     # from the shapes that are available.
                     val = ok_shapes[randint(0, num_ok_shapes - 1)]
                     self.set_grid(row, col, val)
+                    self.chromosome[idx] = val
                 # Nothing is OK, but we have a space either above or to
                 # the left so can replace that with a domino. This is
                 # in all likelyhood the last grid square.
@@ -186,8 +194,8 @@ class CIndividual(object):
                     if col > 0 and self.grid[row, col - 1] == GRID_SPACE:
                         # Horizontal domino
                         self.chromosome[idx - 1] = GRID_HDOMINO
-                        self.grid[row, col - 1] = GRID_HDOMINO
-                        self.grid[row, col] = GRID_HDOMINO
+                        self.grid[row, col - 1] = GRID_HDCOLOUR
+                        self.grid[row, col] = GRID_HDCOLOUR
                     else:
                         # Vertical domino
                         # Update the chromosome with a vertical domino, this is
@@ -199,9 +207,11 @@ class CIndividual(object):
                             if self.chromosome[idxnew] == GRID_VDOMINO:
                                 self.chromosome[idxnew + 1] = GRID_VDOMINO
                                 break
-                        self.grid[row - 1, col] = GRID_VDOMINO
-                        self.grid[row, col] = GRID_VDOMINO
+                        self.grid[row - 1, col] = GRID_VDCOLOUR
+                        self.grid[row, col] = GRID_VDCOLOUR
                 idx += 1 # Look at the next chromosome element
+        # Set the number of elements currently used in this chromosome.
+        self.csize = idx
 
     def check_grid(self, row, col):
         '''
@@ -269,6 +279,7 @@ class CIndividual(object):
         # Return a the resultant order n checker-board
         outstr = "\n{}\nfitness={}%".format(self.chromosome, self.weight)
         outstr += ", spaces={}".format(self.spaces)
+        outstr += ", csize={}".format(self.csize)
         outstr += "\n{}".format(self.grid)
         return outstr
 
@@ -313,13 +324,13 @@ def apply_selection(pop):
     # Sorted the population from best performing individuals to the worst.
     # Ref: Practical Genetic Algorithms second edition; Haupt R.L., Haupt S.E.
     #
-    sorted(pop, key=attrgetter('weight'))
+    pop = sorted(pop, key=attrgetter('weight'), reverse=True)
     #
     # Now apply cross-over; using pairing from top to bottom
     #
-    firsthalf = GRID_SIZE / 2
     child_idx = int(X_RATE * POPULATION_SIZE)
     for idx in range(0, POPULATION_SIZE, 2):
+        firsthalf = pop[idx].csize / 2
         # Chromosome cross-over with resampled individuals
         chrom1 = pop[idx].chromosome[:firsthalf] + pop[idx + 1].chromosome[firsthalf:]
         chrom2 = pop[idx + 1].chromosome[:firsthalf] + pop[idx].chromosome[firsthalf:]
@@ -340,14 +351,12 @@ def apply_mutation(pop):
     not mutated in anyway.
     Ref: Practical Genetic Algorithms second edition; Haupt R.L., Haupt S.E.
     '''
-    # Calculate the number of mutations to be performed
-    # nmut=ceil((Npop - 1)*Nbits m);
-    nmut = int(MUTATION_RATE * (POPULATION_SIZE - 1) * GRID_SIZE)
-    for _ in range(1, nmut):
+    # Apply the mutations
+    for _ in range(1, NMUT):
         # mrow=ceil(rand(1, m)*(Npop - 1))+1;
         # mcol=ceil(rand(1, m)*Nbits);
         mrow = int(uniform(1, MUTATION_RATE) * (POPULATION_SIZE - 1) + 1)
-        mcol = int(uniform(1, MUTATION_RATE) * len(pop[mrow].chromosome))
+        mcol = int(uniform(1, MUTATION_RATE) * pop[mrow].csize)
         pop[mrow].mutate(mcol)
     return pop
 
@@ -392,11 +401,12 @@ def main(time_execution):
     for _ in range(GENERATIONS_MAX):
         mse = 0.0
         total_weighting = 0
+        # Mutate the population at the rate defined, see top of script.
+        apply_mutation(population)
         for individual in range(POPULATION_SIZE):
             #
-            # Mutate the individual and evaluate it with the fitness function.
+            # Evaluate each individual with the fitness function.
             #
-            apply_mutation(population)
             population[individual].fitness_function()
             total_weighting += population[individual].spaces
             # Set the best individual
@@ -418,7 +428,10 @@ def main(time_execution):
         # We need to normalise all the population weights.
         #
         for individual in range(POPULATION_SIZE):
-            population[individual].weight = float(population[individual].spaces) / total_weighting
+            if total_weighting:
+                population[individual].weight = float(population[individual].spaces) / total_weighting
+            else:
+                population[individual].weight = float(0.0)
 
         #
         # Implement Natural Selection
