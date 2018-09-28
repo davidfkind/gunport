@@ -68,7 +68,7 @@ GRID_SIZE = X_WIDTH * Y_HEIGHT
 # Note: mutation rate affects the convergence speed.
 #
 MUTATION_RATE = float(0.20)     # (%) mutation rate
-POPULATION_SIZE = int(100)     # The total number of individuals
+POPULATION_SIZE = int(1000)     # The total number of individuals
                                 # Must be an even number.
 X_RATE = float(0.50)            # Natural selection (%) kept.
 # Calculate the number of mutations to be performed
