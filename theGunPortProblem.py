@@ -32,17 +32,16 @@ import sys
 import platform
 import argparse
 import time                     # Used to time script execution.
-#import math
-from operator import attrgetter
 from random import randint, uniform  # Used to generate random integer values.
 from copy import deepcopy
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
+from filterpy.monte_carlo import stratified_resample
 import numpy as np
 
 __author__ = 'David Kind'
-__date__ = '27-09-2018'
-__version__ = '1.5'
+__date__ = '28-09-2018'
+__version__ = '1.6'
 __copyright__ = 'http://www.apache.org/licenses/LICENSE-2.0'
 
 
@@ -69,14 +68,14 @@ GRID_SIZE = X_WIDTH * Y_HEIGHT
 # Note: mutation rate affects the convergence speed.
 #
 MUTATION_RATE = float(0.20)     # (%) mutation rate
-POPULATION_SIZE = int(1000)     # The total number of individuals
+POPULATION_SIZE = int(100)     # The total number of individuals
                                 # Must be an even number.
 X_RATE = float(0.50)            # Natural selection (%) kept.
 # Calculate the number of mutations to be performed
 # NMUT=ceil((Npop - 1)*Nbits m);
 NMUT = int(MUTATION_RATE * (POPULATION_SIZE - 1) * GRID_SIZE)
 
-GENERATIONS_MAX = int(2500)     # The total number of generations
+GENERATIONS_MAX = int(1500)      # The total number of generations
 NUM_SHAPES = 3                  # Defined shapes
 GRID_SPACE = 0                  # Empty square
 GRID_HDOMINO = 1                # Horizontal domino
@@ -115,7 +114,7 @@ class CIndividual(object):
         Generates random values to fill the individual's chromosome.
         Bias towards holes.
         '''
-        choices = [GRID_SPACE, GRID_HDOMINO, GRID_SPACE, GRID_VDOMINO]
+        choices = [GRID_SPACE, GRID_HDOMINO, GRID_VDOMINO]
         self.chromosome = [choices[randint(0, (len(choices) - 1))] for _ in range(GRID_SIZE)]
 
     def mutate(self, pos):
@@ -131,7 +130,7 @@ class CIndividual(object):
         else: # GRID_VDOMINO
             choices = [GRID_SPACE, GRID_HDOMINO]
         # Randomly assign a new value from the available choices.
-        self.chromosome[pos] = choices[randint(0, 1)]
+        self.chromosome[pos] = choices[randint(0, (len(choices) - 1))]
 
     def fitness_function(self):
         '''
@@ -210,6 +209,28 @@ class CIndividual(object):
         Returns a list of valid shapes after verifying whether the shape can be
         fitted to the specified location in the grid.
         Shapes are: GRID_SPACE, GRID_HDOMINO, GRID_VDOMINO
+        Note: biased towards placing spaces/holes ahead of dominoes.
+        '''
+        # Are we ok to place have an empty space?
+        result = []
+        if not ((col > 0 and self.grid[row, col - 1] == GRID_SPACE) or \
+            (row > 0 and self.grid[row - 1, col] == GRID_SPACE)):
+            result.append(GRID_SPACE)
+        else:
+            # Are we ok to have a horizontal domino?
+            if col < X_WIDTH - 1 and self.grid[row, col + 1] == GRID_SPACE:
+                result.append(GRID_HDOMINO)
+                result.append(GRID_HDOMINO)
+            # Are we ok to have a vertical domino?
+            if row < Y_HEIGHT - 1:
+                result.append(GRID_VDOMINO)
+        return result
+
+    def check_grid_nobias(self, row, col):
+        '''
+        Returns a list of valid shapes after verifying whether the shape can be
+        fitted to the specified location in the grid.
+        Shapes are: GRID_SPACE, GRID_HDOMINO, GRID_VDOMINO
         '''
         # Are we ok to place have an empty space?
         result = []
@@ -219,6 +240,7 @@ class CIndividual(object):
             result.append(GRID_SPACE)
         # Are we ok to have a horizontal domino?
         if col < X_WIDTH - 1 and self.grid[row, col + 1] == GRID_SPACE:
+            result.append(GRID_HDOMINO)
             result.append(GRID_HDOMINO)
         # Are we ok to have a vertical domino?
         if row < Y_HEIGHT - 1:
@@ -305,29 +327,23 @@ def apply_selection(pop):
     to the new population.
     Ref: Practical Genetic Algorithms second edition; Haupt R.L., Haupt S.E.
     '''
-    #
-    # Sorted the population from best performing individuals to the worst.
-    # Ref: Practical Genetic Algorithms second edition; Haupt R.L., Haupt S.E.
-    #
-    pop = sorted(pop, key=attrgetter('weight'), reverse=True)
-    #
-    # Now apply cross-over; using pairing from top to bottom
-    #
-    child_idx = int(X_RATE * POPULATION_SIZE)
-    for idx in range(0, POPULATION_SIZE, 2):
-        firsthalf = pop[idx].csize / 2
+    # Now resample the best performing individuals using Monte Carlo
+    # stratified resampling.
+    # Ref: https://filterpy.readthedocs.io/en/latest/index.html
+    weights = [pop[idx].weight for idx in range(POPULATION_SIZE)]
+    indexes = stratified_resample(weights)
+    # Now implement simple paired cross-over between the individuals
+    newpop = [CIndividual() for _ in range(POPULATION_SIZE)]
+    idx2 = POPULATION_SIZE / 2
+    for idx in range(0, POPULATION_SIZE / 2):
+        firsthalf = pop[indexes[idx]].csize / 2
         # Chromosome cross-over with resampled individuals
-        chrom1 = pop[idx].chromosome[:firsthalf] + pop[idx + 1].chromosome[firsthalf:]
-        chrom2 = pop[idx + 1].chromosome[:firsthalf] + pop[idx].chromosome[firsthalf:]
-        pop[child_idx].chromosome = chrom1
-        child_idx += 1
-        if child_idx >= POPULATION_SIZE:
-            break
-        pop[child_idx].chromosome = chrom2
-        child_idx += 1
-        if child_idx >= POPULATION_SIZE:
-            break
-    return pop
+        chrom1 = pop[indexes[idx]].chromosome[:firsthalf] + pop[indexes[idx2]].chromosome[firsthalf:]
+        chrom2 = pop[indexes[idx2]].chromosome[:firsthalf] + pop[indexes[idx]].chromosome[firsthalf:]
+        newpop[idx].chromosome = chrom1
+        newpop[idx2].chromosome = chrom2
+        idx2 += 1
+    return newpop
 
 def apply_mutation(pop):
     '''
@@ -398,7 +414,7 @@ def main(time_execution):
             if population[individual].spaces > most_spaces:
                 best = deepcopy(population[individual])
                 most_spaces = population[individual].spaces
-                print best
+#                print best
             # Calculate the mse running total
             mse += (max_holes - population[individual].spaces) ** 2
 
@@ -427,12 +443,6 @@ def main(time_execution):
         print "\nSolution Found."
     else:
         print "\nFailed to find a solution."
-#### TODO: remove me: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    print "-" * 80
-    print "Dumping out all the individuals"
-    for individual in range(POPULATION_SIZE):
-        print population[individual]
-#### TODO: remove me: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     # Are we on the timer?
     if time_execution:
