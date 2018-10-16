@@ -57,25 +57,13 @@ SCRIPTNAME = os.path.basename(sys.argv[0])
 SCRIPTINFO = "{} version: {}, {}".format(SCRIPTNAME, __version__, __date__)
 
 #
-# Grid defines; modify these values to change the grid size to optimise.
-#
-X_WIDTH = int(10)
-Y_HEIGHT = int(8)
-GRID_SIZE = X_WIDTH * Y_HEIGHT
-
-#
 # GA Parameters that can be modified to alter performance
 # Note: mutation rate affects the convergence speed.
 #
 MUTATION_RATE = float(0.20)     # (%) mutation rate
 POPULATION_SIZE = int(1000)     # The total number of individuals
                                 # Must be an even number.
-X_RATE = float(0.50)            # Natural selection (%) kept.
-# Calculate the number of mutations to be performed
-# NMUT=ceil((Npop - 1)*Nbits m);
-NMUT = int(MUTATION_RATE * (POPULATION_SIZE - 1) * GRID_SIZE)
-
-GENERATIONS_MAX = int(1500)      # The total number of generations
+GENERATIONS_MAX = int(1500)     # The total number of generations
 NUM_SHAPES = 3                  # Defined shapes
 GRID_SPACE = 0                  # Empty square
 GRID_HDOMINO = 1                # Horizontal domino
@@ -96,12 +84,16 @@ class CIndividual(object):
     spaces = int(0)     # Number of empty spaces in the fitted grid
     dominoes = int(0)   # Number of domonies placed in the fitted grid
     csize = int(0)      # Number of used chromosome elements
+    xsize = int(0)      # Grid width
+    ysize = int(0)      # Grid height
 
-    def __init__(self):
+    def __init__(self, x_width, y_height):
         # Initialise the object members
         self.spaces = int(0)
         self.dominoes = int(0)
-        self.csize = int(GRID_SIZE)
+        self.csize = int(x_width * y_height)
+        self.xsize = x_width
+        self.ysize = y_height
 
         # Set an initial weighting; we'll be using the number of spaces in
         # each resultant grid for the weighting calculation. This means grids
@@ -115,7 +107,7 @@ class CIndividual(object):
         Bias towards holes.
         '''
         choices = [GRID_SPACE, GRID_HDOMINO, GRID_VDOMINO]
-        self.chromosome = [choices[randint(0, (len(choices) - 1))] for _ in range(GRID_SIZE)]
+        self.chromosome = [choices[randint(0, (len(choices) - 1))] for _ in range(self.csize)]
 
     def mutate(self, pos):
         '''
@@ -143,12 +135,12 @@ class CIndividual(object):
           (2) replacing overlapping dominoes.
           (3) removing unused genes from the end of the list.
         '''
-        self.grid = np.zeros((Y_HEIGHT, X_WIDTH))
+        self.grid = np.zeros((self.ysize, self.xsize))
         self.spaces = int(0)    # Running total of spaces in grid
         self.dominoes = int(0)  # Running total of dominoes in grid
         idx = 0                 # Chromosome index
-        for row in range(Y_HEIGHT):
-            for col in range(X_WIDTH):
+        for row in range(self.ysize):
+            for col in range(self.xsize):
                 #
                 # Is the grid location already occupied
                 #
@@ -218,11 +210,11 @@ class CIndividual(object):
             result.append(GRID_SPACE)
         else:
             # Are we ok to have a horizontal domino?
-            if col < X_WIDTH - 1 and self.grid[row, col + 1] == GRID_SPACE:
+            if col < self.xsize - 1 and self.grid[row, col + 1] == GRID_SPACE:
                 result.append(GRID_HDOMINO)
                 result.append(GRID_HDOMINO)
             # Are we ok to have a vertical domino?
-            if row < Y_HEIGHT - 1:
+            if row < self.ysize - 1:
                 result.append(GRID_VDOMINO)
         return result
 
@@ -239,11 +231,11 @@ class CIndividual(object):
             result.append(GRID_SPACE)
             result.append(GRID_SPACE)
         # Are we ok to have a horizontal domino?
-        if col < X_WIDTH - 1 and self.grid[row, col + 1] == GRID_SPACE:
+        if col < self.xsize - 1 and self.grid[row, col + 1] == GRID_SPACE:
             result.append(GRID_HDOMINO)
             result.append(GRID_HDOMINO)
         # Are we ok to have a vertical domino?
-        if row < Y_HEIGHT - 1:
+        if row < self.ysize - 1:
             result.append(GRID_VDOMINO)
         return result
 
@@ -274,11 +266,11 @@ class CIndividual(object):
         '''
         _, ax = plt.subplots()
         ax.imshow(self.grid, cmap=cm.jet, interpolation='nearest')
-        ax.set_xticks([x + 0.5 for x in range(X_WIDTH)])
-        ax.set_yticks([y + 0.5 for y in range(Y_HEIGHT)])
+        ax.set_xticks([x + 0.5 for x in range(self.xsize)])
+        ax.set_yticks([y + 0.5 for y in range(self.ysize)])
         ax.grid(which='major', linestyle='-', linewidth='0.5', color='red')
         msg = "({} x {}) {} spaces, {} dominoes" \
-            .format(X_WIDTH, Y_HEIGHT, self.spaces, self.dominoes)
+            .format(self.xsize, self.ysize, self.spaces, self.dominoes)
         plt.title(msg)
         plt.show()
 
@@ -321,7 +313,7 @@ def calc_solution_holes(x_coord, y_coord):
             holes = (x_coord * y_coord - 2) / 3
     return int(holes)
 
-def apply_selection(pop):
+def apply_selection(pop, psize, xwidth, yheight):
     '''
     Applies natural selection to the input population and returns a reference
     to the new population.
@@ -330,12 +322,12 @@ def apply_selection(pop):
     # Now resample the best performing individuals using Monte Carlo
     # stratified resampling.
     # Ref: https://filterpy.readthedocs.io/en/latest/index.html
-    weights = [pop[idx].weight for idx in range(POPULATION_SIZE)]
+    weights = [pop[idx].weight for idx in range(psize)]
     indexes = stratified_resample(weights)
     # Now implement simple paired cross-over between the individuals
-    newpop = [CIndividual() for _ in range(POPULATION_SIZE)]
-    idx2 = POPULATION_SIZE / 2
-    for idx in range(0, POPULATION_SIZE / 2):
+    newpop = [CIndividual(xwidth, yheight) for _ in range(psize)]
+    idx2 = psize / 2
+    for idx in range(0, psize / 2):
         firsthalf = pop[indexes[idx]].csize / 2
         # Chromosome cross-over with resampled individuals
         chrom1 = pop[indexes[idx]].chromosome[:firsthalf] + pop[indexes[idx2]].chromosome[firsthalf:]
@@ -345,7 +337,7 @@ def apply_selection(pop):
         idx2 += 1
     return newpop
 
-def apply_mutation(pop):
+def apply_mutation(pop, psize, nmut):
     '''
     Applies mutation to the input population and returns a reference to the new
     population. Using Elitism to ensure the best performing individuals are
@@ -353,11 +345,11 @@ def apply_mutation(pop):
     Ref: Practical Genetic Algorithms second edition; Haupt R.L., Haupt S.E.
     '''
     # Apply the mutations
-    for _ in range(1, NMUT):
+    for _ in range(1, nmut):
         # mrow=ceil(rand(1, m)*(Npop - 1))+1;
         # mcol=ceil(rand(1, m)*Nbits);
-        mrow = int(uniform(1, MUTATION_RATE) * (POPULATION_SIZE - 1) + 1)
-        mcol = int(uniform(1, MUTATION_RATE) * pop[mrow].csize)
+        mrow = int(uniform(1, MUTATION_RATE) * (psize - 1) + 1)
+        mcol = int(uniform(1, MUTATION_RATE) * psize)
         pop[mrow].mutate(mcol)
     return pop
 
@@ -372,39 +364,45 @@ def plot_performance(mse_values):
     plt.show()
 
 
-
-def main(time_execution):
+def main(grid, psize, mutation, generations, timed_execution):
     '''Main function'''
     start = time.time()        # Used to time script execution.
-    print 'Running {} with grid ({} x {}):'.format(SCRIPTNAME, X_WIDTH, Y_HEIGHT)
+    x_width = int(grid[0])
+    y_height = int(grid[1])
+    print 'Running {} with grid ({} x {}):' \
+            .format(SCRIPTNAME, x_width, y_height)
+    print "  population size={}, mutation rate={}".format(psize, mutation)
 
     #
     # Calculate solution maximum number of holes.
     #
-    max_holes = calc_solution_holes(X_WIDTH, Y_HEIGHT)
+    max_holes = calc_solution_holes(x_width, y_height)
     print "Maximum number of holes for {} x {} grid is {}." \
-            .format(X_WIDTH, Y_HEIGHT, max_holes)
+            .format(x_width, y_height, max_holes)
+    # Calculate the number of mutations to be performed
+    # NMUT=ceil((Npop - 1)*Nbits m);
+    nmut = int(mutation * (psize - 1) * (x_width * y_height))
 
     #
     # Create our initial random population.
     #
     print "Creating the initial population."
-    population = [CIndividual() for _ in range(POPULATION_SIZE)]
-    for individual in range(POPULATION_SIZE):
+    population = [CIndividual(x_width, y_height) for _ in range(psize)]
+    for individual in range(psize):
         population[individual].generate_chromosome()
 
     #
     # Run GA over GENERATIONS_MAX for each individual
     #
-    print "Executing the GA over max. of {} generations.".format(GENERATIONS_MAX)
+    print "Executing the GA over max. of {} generations.".format(generations)
     most_spaces = 0
     mse_values = []
-    for _ in range(GENERATIONS_MAX):
+    for _ in range(generations):
         mse = 0.0
         total_weighting = 0
         # Mutate the population at the rate defined, see top of script.
-        apply_mutation(population)
-        for individual in range(POPULATION_SIZE):
+        apply_mutation(population, psize, nmut)
+        for individual in range(psize):
             #
             # Evaluate each individual with the fitness function.
             #
@@ -427,7 +425,7 @@ def main(time_execution):
         #
         # We need to normalise all the population weights.
         #
-        for individual in range(POPULATION_SIZE):
+        for individual in range(psize):
             if total_weighting:
                 population[individual].weight = float(population[individual].spaces) / total_weighting
             else:
@@ -435,7 +433,7 @@ def main(time_execution):
         #
         # Implement Natural Selection
         #
-        population = apply_selection(population)
+        population = apply_selection(population, psize, x_width, y_height)
         print ".",  # Show progress; that the script is still running.
 
     # Let the user know the result.
@@ -445,7 +443,7 @@ def main(time_execution):
         print "\nFailed to find a solution."
 
     # Are we on the timer?
-    if time_execution:
+    if timed_execution:
         print "Script execution time:", time.time() - start, "seconds"
     #
     # Display the domino grid; it's a bit rough and ready.
@@ -462,13 +460,43 @@ if __name__ == '__main__':
     PARSER = argparse.ArgumentParser(description=__doc__,
                                      version=SCRIPTINFO,
                                      formatter_class=argparse.RawTextHelpFormatter)
+    PARSER.add_argument('grid', nargs=1,
+                        help='Gunport problem grid size, eg 10x8.')
+    PARSER.add_argument('--pop', '-p',
+                        help='GA population size. eg. 1000')
+    PARSER.add_argument('--mut', '-m',
+                        help='GA population mutation rate 0 - 100. eg. 20')
+    PARSER.add_argument('--gen', '-g',
+                        help='GA total number of generations, cost. eg. 1000')
     PARSER.add_argument('--timer', '-t',
                         help='Script execution time.',
                         action='store_true')
     # Get the arguments dictionary, where arguments are the keys.
     ARGS = vars(PARSER.parse_args())
+    # Extract the grid dimensions as a list [x, y]
+    GRID = ARGS['grid']
+    GRID = GRID[0].lower().split("x")
+    # Set the GA population value
+    if ARGS['pop'] == None:
+        PSIZE = POPULATION_SIZE
+    else:
+        PSIZE = int(ARGS['pop'])
+    # Set the GA mutation rate
+    if ARGS['mut'] == None:
+        MRATE = MUTATION_RATE
+    else:
+        MRATE = float(ARGS['mut'])
+        if MRATE:
+            MRATE = MRATE / 100.0
+    # Set the GA maximum number of generations to run for
+    if ARGS['gen'] == None:
+        GENMAX = GENERATIONS_MAX
+    else:
+        GENMAX = int(ARGS['gen'])
+    # Set the timer boolean value
+    TIMER = ARGS['timer']
 
     # Start up the application
-    main(ARGS['timer'])
+    main(GRID, PSIZE, MRATE, GENMAX, TIMER)
 
 # EOF
