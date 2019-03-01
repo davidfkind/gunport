@@ -1,4 +1,4 @@
-#!/usr/bin python
+#
 # -*- coding: utf-8 -*-
 #
 # Copyright 2018 David Kind
@@ -40,15 +40,9 @@ from filterpy.monte_carlo import stratified_resample
 import numpy as np
 
 __author__ = 'David Kind'
-__date__ = '28-09-2018'
-__version__ = '1.6'
+__date__ = '01-03-2019'
+__version__ = '1.7'
 __copyright__ = 'http://www.apache.org/licenses/LICENSE-2.0'
-
-
-if not hasattr(sys, "hexversion") or sys.hexversion < 0x02070600:
-    print 'Python version:', platform.python_version(), \
-        '- I need python 2.7.6 or greater'
-    exit(1)
 
 #
 # Main script defines
@@ -61,7 +55,7 @@ SCRIPTINFO = "{} version: {}, {}".format(SCRIPTNAME, __version__, __date__)
 # Note: mutation rate affects the convergence speed.
 #
 MUTATION_RATE = float(0.20)     # (%) mutation rate
-POPULATION_SIZE = int(1000)     # The total number of individuals
+POPULATION_SIZE = int(100)      # The total number of individuals
                                 # Must be an even number.
 GENERATIONS_MAX = int(1500)     # The total number of generations
 NUM_SHAPES = 3                  # Defined shapes
@@ -326,9 +320,9 @@ def apply_selection(pop, psize, xwidth, yheight):
     indexes = stratified_resample(weights)
     # Now implement simple paired cross-over between the individuals
     newpop = [CIndividual(xwidth, yheight) for _ in range(psize)]
-    idx2 = psize / 2
-    for idx in range(0, psize / 2):
-        firsthalf = pop[indexes[idx]].csize / 2
+    idx2: int = int(psize / 2)
+    for idx in range(0, int(psize / 2)):
+        firsthalf = int(pop[indexes[idx]].csize / 2)
         # Chromosome cross-over with resampled individuals
         chrom1 = pop[indexes[idx]].chromosome[:firsthalf] + pop[indexes[idx2]].chromosome[firsthalf:]
         chrom2 = pop[indexes[idx2]].chromosome[:firsthalf] + pop[indexes[idx]].chromosome[firsthalf:]
@@ -337,7 +331,7 @@ def apply_selection(pop, psize, xwidth, yheight):
         idx2 += 1
     return newpop
 
-def apply_mutation(pop, psize, nmut):
+def apply_mutation(pop, psize, csize, nmut):
     '''
     Applies mutation to the input population and returns a reference to the new
     population. Using Elitism to ensure the best performing individuals are
@@ -349,7 +343,7 @@ def apply_mutation(pop, psize, nmut):
         # mrow=ceil(rand(1, m)*(Npop - 1))+1;
         # mcol=ceil(rand(1, m)*Nbits);
         mrow = int(uniform(1, MUTATION_RATE) * (psize - 1) + 1)
-        mcol = int(uniform(1, MUTATION_RATE) * psize)
+        mcol = int(uniform(1, MUTATION_RATE) * csize)
         pop[mrow].mutate(mcol)
     return pop
 
@@ -369,16 +363,17 @@ def main(grid, psize, mutation, generations, timed_execution):
     start = time.time()        # Used to time script execution.
     x_width = int(grid[0])
     y_height = int(grid[1])
-    print 'Running {} with grid ({} x {}):' \
-            .format(SCRIPTNAME, x_width, y_height)
-    print "  population size={}, mutation rate={}".format(psize, mutation)
+    csize = int(x_width * y_height)
+    print('Running {} with grid ({} x {}):' \
+            .format(SCRIPTNAME, x_width, y_height))
+    print("  population size={}, mutation rate={}".format(psize, mutation))
 
     #
     # Calculate solution maximum number of holes.
     #
     max_holes = calc_solution_holes(x_width, y_height)
-    print "Maximum number of holes for {} x {} grid is {}." \
-            .format(x_width, y_height, max_holes)
+    print("Maximum number of holes for {} x {} grid is {}." \
+            .format(x_width, y_height, max_holes))
     # Calculate the number of mutations to be performed
     # NMUT=ceil((Npop - 1)*Nbits m);
     nmut = int(mutation * (psize - 1) * (x_width * y_height))
@@ -386,7 +381,7 @@ def main(grid, psize, mutation, generations, timed_execution):
     #
     # Create our initial random population.
     #
-    print "Creating the initial population."
+    print("Creating the initial population.")
     population = [CIndividual(x_width, y_height) for _ in range(psize)]
     for individual in range(psize):
         population[individual].generate_chromosome()
@@ -394,14 +389,14 @@ def main(grid, psize, mutation, generations, timed_execution):
     #
     # Run GA over GENERATIONS_MAX for each individual
     #
-    print "Executing the GA over max. of {} generations.".format(generations)
+    print("Executing the GA over max. of {} generations.".format(generations))
     most_spaces = 0
     mse_values = []
     for _ in range(generations):
         mse = 0.0
         total_weighting = 0
         # Mutate the population at the rate defined, see top of script.
-        apply_mutation(population, psize, nmut)
+        apply_mutation(population, psize, csize, nmut)
         for individual in range(psize):
             #
             # Evaluate each individual with the fitness function.
@@ -412,7 +407,7 @@ def main(grid, psize, mutation, generations, timed_execution):
             if population[individual].spaces > most_spaces:
                 best = deepcopy(population[individual])
                 most_spaces = population[individual].spaces
-#                print best
+#                print(best)
             # Calculate the mse running total
             mse += (max_holes - population[individual].spaces) ** 2
 
@@ -434,17 +429,17 @@ def main(grid, psize, mutation, generations, timed_execution):
         # Implement Natural Selection
         #
         population = apply_selection(population, psize, x_width, y_height)
-        print ".",  # Show progress; that the script is still running.
+        print(".",)  # Show progress; that the script is still running.
 
     # Let the user know the result.
     if most_spaces == max_holes:
-        print "\nSolution Found."
+        print("\nSolution Found.")
     else:
-        print "\nFailed to find a solution."
+        print("\nFailed to find a solution.")
 
     # Are we on the timer?
     if timed_execution:
-        print "Script execution time:", time.time() - start, "seconds"
+        print("Script execution time:", time.time() - start, "seconds")
     #
     # Display the domino grid; it's a bit rough and ready.
     #
@@ -458,8 +453,8 @@ def main(grid, psize, mutation, generations, timed_execution):
 
 if __name__ == '__main__':
     PARSER = argparse.ArgumentParser(description=__doc__,
-                                     version=SCRIPTINFO,
                                      formatter_class=argparse.RawTextHelpFormatter)
+    PARSER.add_argument('--version', action='version', version=SCRIPTINFO)
     PARSER.add_argument('grid', nargs=1,
                         help='Gunport problem grid size, eg 10x8.')
     PARSER.add_argument('--pop', '-p',
