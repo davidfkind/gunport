@@ -1,7 +1,7 @@
-#
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# Copyright 2018 David Kind
+# Copyright 2019 David Kind
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may not
 # use this file except in compliance with the License. You may obtain a copy
@@ -25,6 +25,9 @@ Sands, B. (1971), The Gunport Problem, Mathematics Magazine, Vol.44, pp.193-196
 This is an optimisation problem to maximise the holes and minimise the number
 number of dominoes in a grid of variable size. Holes are not allowed to touch
 each other side on.
+
+Command line usage example:
+    py -3 theGunPortProblem.py 6x6
 '''
 
 import os
@@ -40,8 +43,8 @@ from filterpy.monte_carlo import stratified_resample
 import numpy as np
 
 __author__ = 'David Kind'
-__date__ = '01-03-2019'
-__version__ = '1.7'
+__date__ = '13-05-2019'
+__version__ = '1.8'
 __copyright__ = 'http://www.apache.org/licenses/LICENSE-2.0'
 
 #
