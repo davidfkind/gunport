@@ -1,0 +1,14 @@
+Defaults are:                          g=2500, p=100, cx=0.50, m=0.35
+#### TODO: suggested mutation rate:    0.01, 0.25, 0.50, 0.75, 0.99
+#### TODO: suggested population size:  10, 250, 500, 750, 1000
+#### TODO: suggested cross-over rate:  0.01, 0.25, 0.50, 0.75, 0.99
+#### TODO: suggested max generations:  10, 1000, 2500, 5000, 7500
+
+###### TODO:
+# - need to loop through to find as many solutions as possible and record the time taken.
+# - Is the GA converging too soon?
+# - Is there an optimal mutation rate; population size; cross-over rate; max generations?
+#   - automatically run to tune itself; separate calling script?!
+#   - can we test the separate cross-over methods as well?!
+###### TODO:
+

@@ -1,0 +1,22 @@
+Radon 4.1.0 (https://pypi.org/project/radon/)
+The mi command
+This command analyzes Python source code files and compute the Maintainability Index score. Every positional argument is treated as a starting point from which to walk looking for Python files (as in the cc command). Paths can be excluded with the -e option. The Maintainability Index is always in the range 0-100. MI is ranked as follows:
+
+MI score	Rank	Maintainability
+100 - 20	A	Very high
+19 - 10		B	Medium
+9 - 0		C	Extremely low
+
+
+PS C:\Users\dkind\DFK\IMAT5314 - MSc Project\TheGunportProblem> radon mi .
+ba.py - A
+common.py - A
+domplotlib.py - A
+findallsolns.py - A
+ga.py - A
+ma.partial.py - A
+ma.py - A
+reclassify.py - A
+results.py - A
+tune_ga.py - A
+

@@ -1,0 +1,9 @@
+The following results were generated using ma.py version: 1.5, 06-02-2020.
+ - Python version: 3.7.4
+ - Test PC: Windows 10
+ - Execution time: 6.318092346191406e-05s
+ - Total solutions: 16
+ - Fundamental solutions: 2
+ - Solution: 28 holes 30 dominoes
+ - Board: 11x8
+ - time to 1st solution: 3.948807716369629e-06s

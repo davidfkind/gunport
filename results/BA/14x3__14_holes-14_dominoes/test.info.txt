@@ -1,0 +1,9 @@
+The following results were generated using ba.py version: 1.8, 05-07-2019.
+ - Python version: 3.7.2
+ - Test PC: Windows 7
+ - Execution time: 32216.442223072052s
+ - Total solutions: 30
+ - Fundamental solutions: 9
+ - Solution: 14 holes 14 dominoes
+ - Board: 14x3
+ - time to 1st solution: 1073.8814074357351s

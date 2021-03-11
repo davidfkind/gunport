@@ -1,0 +1,3 @@
+
+
+Number of permutations = 13

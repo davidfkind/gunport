@@ -1,0 +1,131 @@
+Radon 4.1.0 (https://pypi.org/project/radon/)
+The raw command
+This command analyzes the given Python modules in order to compute raw metrics. These include:
+	LOC: the total number of lines of code
+	LLOC: the number of logical lines of code
+	SLOC: the number of source lines of code - not necessarily corresponding to the LLOC [Wikipedia]
+	comments: the number of Python comment lines (i.e. only single-line comments #)
+	multi: the number of lines representing multi-line strings
+	blank: the number of blank lines (or whitespace-only ones)
+
+PS C:\Users\dkind\DFK\IMAT5314 - MSc Project\TheGunportProblem> radon raw .
+ba.py
+    LOC: 440
+    LLOC: 217
+    SLOC: 235
+    Comments: 119
+    Single comments: 104
+    Multi: 74
+    Blank: 27
+    - Comment Stats
+        (C % L): 27%
+        (C % S): 51%
+        (C + M % L): 44%
+common.py
+    LOC: 252
+    LLOC: 142
+    SLOC: 144
+    Comments: 58
+    Single comments: 52
+    Multi: 40
+    Blank: 16
+    - Comment Stats
+        (C % L): 23%
+        (C % S): 40%
+        (C + M % L): 39%
+domplotlib.py
+    LOC: 713
+    LLOC: 435
+    SLOC: 425
+    Comments: 156
+    Single comments: 151
+    Multi: 84
+    Blank: 53
+    - Comment Stats
+        (C % L): 22%
+        (C % S): 37%
+        (C + M % L): 34%
+findallsolns.py
+    LOC: 248
+    LLOC: 135
+    SLOC: 131
+    Comments: 55
+    Single comments: 54
+    Multi: 47
+    Blank: 16
+    - Comment Stats
+        (C % L): 22%
+        (C % S): 42%
+        (C + M % L): 41%
+ga.py
+    LOC: 529
+    LLOC: 272
+    SLOC: 275
+    Comments: 184
+    Single comments: 156
+    Multi: 65
+    Blank: 33
+    - Comment Stats
+        (C % L): 35%
+        (C % S): 67%
+        (C + M % L): 47%
+ma.partial.py
+    LOC: 505
+    LLOC: 256
+    SLOC: 260
+    Comments: 187
+    Single comments: 157
+    Multi: 55
+    Blank: 33
+    - Comment Stats
+        (C % L): 37%
+        (C % S): 72%
+        (C + M % L): 48%
+ma.py
+    LOC: 809
+    LLOC: 376
+    SLOC: 387
+    Comments: 294
+    Single comments: 263
+    Multi: 117
+    Blank: 42
+    - Comment Stats
+        (C % L): 36%
+        (C % S): 76%
+        (C + M % L): 51%
+reclassify.py
+    LOC: 113
+    LLOC: 49
+    SLOC: 51
+    Comments: 40
+    Single comments: 37
+    Multi: 13
+    Blank: 12
+    - Comment Stats
+        (C % L): 35%
+        (C % S): 78%
+        (C + M % L): 47%
+results.py
+    LOC: 791
+    LLOC: 432
+    SLOC: 440
+    Comments: 216
+    Single comments: 205
+    Multi: 114
+    Blank: 32
+    - Comment Stats
+        (C % L): 27%
+        (C % S): 49%
+        (C + M % L): 42%
+tune_ga.py
+    LOC: 237
+    LLOC: 130
+    SLOC: 145
+    Comments: 43
+    Single comments: 35
+    Multi: 36
+    Blank: 21
+    - Comment Stats
+        (C % L): 18%
+        (C % S): 30%
+        (C + M % L): 33%

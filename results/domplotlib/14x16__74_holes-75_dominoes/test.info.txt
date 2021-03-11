@@ -1,0 +1,9 @@
+The following results were generated using domplotlib.py version: 2.4, 11-03-2020.
+ - Python version: 3.7.4
+ - Test PC: Windows 10
+ - Execution time: 1.2155354022979736s
+ - Total solutions: 8
+ - Fundamental solutions: 1
+ - Solution: 74 holes 75 dominoes
+ - Board: 14x16
+ - time to 1st solution: 0.1519419252872467s

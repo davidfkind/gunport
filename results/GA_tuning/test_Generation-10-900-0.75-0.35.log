@@ -1,0 +1,1170 @@
+Running: tune_ga.py version: 1.0, 19-10-2019
+*************************************************
+Removing all previous results from the GA folder.
+*************************************************
+
+Running the tests for Generation.
+Running tune_ga.py with board (2 x 2):
+Maximum number of holes for 2 x 2 board is 0.
+Maximum number of dominoes for 2 x 2 board is 2.
+Chromosome size = 6
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\2x2__0_holes-2_dominoes\soln-0.npy
+Writing solution: results\GA\2x2__0_holes-2_dominoes\soln-1.npy
+Running tune_ga.py with board (2 x 2):
+Maximum number of holes for 2 x 2 board is 0.
+Maximum number of dominoes for 2 x 2 board is 2.
+Chromosome size = 6
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\2x2__0_holes-2_dominoes\soln-0.npy
+Writing solution: results\GA\2x2__0_holes-2_dominoes\soln-1.npy
+Running tune_ga.py with board (2 x 2):
+Maximum number of holes for 2 x 2 board is 0.
+Maximum number of dominoes for 2 x 2 board is 2.
+Chromosome size = 6
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\2x2__0_holes-2_dominoes\soln-0.npy
+Writing solution: results\GA\2x2__0_holes-2_dominoes\soln-1.npy
+Running tune_ga.py with board (2 x 2):
+Maximum number of holes for 2 x 2 board is 0.
+Maximum number of dominoes for 2 x 2 board is 2.
+Chromosome size = 6
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\2x2__0_holes-2_dominoes\soln-0.npy
+Writing solution: results\GA\2x2__0_holes-2_dominoes\soln-1.npy
+Running tune_ga.py with board (2 x 2):
+Maximum number of holes for 2 x 2 board is 0.
+Maximum number of dominoes for 2 x 2 board is 2.
+Chromosome size = 6
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\2x2__0_holes-2_dominoes\soln-0.npy
+Writing solution: results\GA\2x2__0_holes-2_dominoes\soln-1.npy
+Running tune_ga.py with board (3 x 3):
+Maximum number of holes for 3 x 3 board is 3.
+Maximum number of dominoes for 3 x 3 board is 3.
+Chromosome size = 10
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-0.npy
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-1.npy
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-2.npy
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-3.npy
+Running tune_ga.py with board (3 x 3):
+Maximum number of holes for 3 x 3 board is 3.
+Maximum number of dominoes for 3 x 3 board is 3.
+Chromosome size = 10
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-0.npy
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-1.npy
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-2.npy
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-3.npy
+Running tune_ga.py with board (3 x 3):
+Maximum number of holes for 3 x 3 board is 3.
+Maximum number of dominoes for 3 x 3 board is 3.
+Chromosome size = 10
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-0.npy
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-1.npy
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-2.npy
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-3.npy
+Running tune_ga.py with board (3 x 3):
+Maximum number of holes for 3 x 3 board is 3.
+Maximum number of dominoes for 3 x 3 board is 3.
+Chromosome size = 10
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-0.npy
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-1.npy
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-2.npy
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-3.npy
+Running tune_ga.py with board (3 x 3):
+Maximum number of holes for 3 x 3 board is 3.
+Maximum number of dominoes for 3 x 3 board is 3.
+Chromosome size = 10
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-0.npy
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-1.npy
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-2.npy
+Writing solution: results\GA\3x3__3_holes-3_dominoes\soln-3.npy
+Running tune_ga.py with board (4 x 4):
+Maximum number of holes for 4 x 4 board is 4.
+Maximum number of dominoes for 4 x 4 board is 6.
+Chromosome size = 14
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-0.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-1.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-2.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-3.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-4.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-5.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-6.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-7.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-8.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-9.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-10.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-11.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-12.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-13.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-14.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-15.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-16.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-17.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-18.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-19.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-20.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-21.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-22.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-23.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-24.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-25.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-26.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-27.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-28.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-29.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-30.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-31.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-32.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-33.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-34.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-35.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-36.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-37.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-38.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-39.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-40.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-41.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-42.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-43.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-44.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-45.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-46.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-47.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-48.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-49.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-50.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-51.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-52.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-53.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-54.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-55.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-56.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-57.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-58.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-59.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-60.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-61.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-62.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-63.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-64.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-65.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-66.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-67.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-68.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-69.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-70.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-71.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-72.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-73.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-74.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-75.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-76.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-77.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-78.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-79.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-80.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-81.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-82.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-83.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-84.npy
+Running tune_ga.py with board (4 x 4):
+Maximum number of holes for 4 x 4 board is 4.
+Maximum number of dominoes for 4 x 4 board is 6.
+Chromosome size = 14
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-0.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-1.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-2.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-3.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-4.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-5.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-6.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-7.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-8.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-9.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-10.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-11.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-12.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-13.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-14.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-15.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-16.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-17.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-18.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-19.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-20.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-21.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-22.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-23.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-24.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-25.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-26.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-27.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-28.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-29.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-30.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-31.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-32.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-33.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-34.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-35.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-36.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-37.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-38.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-39.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-40.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-41.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-42.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-43.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-44.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-45.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-46.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-47.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-48.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-49.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-50.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-51.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-52.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-53.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-54.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-55.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-56.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-57.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-58.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-59.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-60.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-61.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-62.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-63.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-64.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-65.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-66.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-67.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-68.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-69.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-70.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-71.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-72.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-73.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-74.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-75.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-76.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-77.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-78.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-79.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-80.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-81.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-82.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-83.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-84.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-85.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-86.npy
+Running tune_ga.py with board (4 x 4):
+Maximum number of holes for 4 x 4 board is 4.
+Maximum number of dominoes for 4 x 4 board is 6.
+Chromosome size = 14
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-0.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-1.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-2.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-3.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-4.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-5.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-6.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-7.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-8.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-9.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-10.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-11.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-12.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-13.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-14.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-15.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-16.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-17.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-18.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-19.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-20.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-21.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-22.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-23.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-24.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-25.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-26.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-27.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-28.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-29.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-30.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-31.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-32.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-33.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-34.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-35.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-36.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-37.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-38.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-39.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-40.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-41.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-42.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-43.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-44.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-45.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-46.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-47.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-48.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-49.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-50.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-51.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-52.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-53.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-54.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-55.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-56.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-57.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-58.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-59.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-60.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-61.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-62.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-63.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-64.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-65.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-66.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-67.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-68.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-69.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-70.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-71.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-72.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-73.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-74.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-75.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-76.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-77.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-78.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-79.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-80.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-81.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-82.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-83.npy
+Running tune_ga.py with board (4 x 4):
+Maximum number of holes for 4 x 4 board is 4.
+Maximum number of dominoes for 4 x 4 board is 6.
+Chromosome size = 14
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-0.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-1.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-2.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-3.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-4.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-5.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-6.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-7.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-8.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-9.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-10.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-11.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-12.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-13.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-14.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-15.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-16.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-17.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-18.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-19.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-20.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-21.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-22.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-23.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-24.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-25.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-26.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-27.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-28.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-29.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-30.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-31.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-32.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-33.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-34.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-35.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-36.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-37.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-38.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-39.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-40.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-41.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-42.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-43.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-44.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-45.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-46.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-47.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-48.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-49.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-50.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-51.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-52.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-53.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-54.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-55.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-56.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-57.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-58.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-59.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-60.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-61.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-62.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-63.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-64.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-65.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-66.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-67.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-68.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-69.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-70.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-71.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-72.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-73.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-74.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-75.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-76.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-77.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-78.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-79.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-80.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-81.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-82.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-83.npy
+Running tune_ga.py with board (4 x 4):
+Maximum number of holes for 4 x 4 board is 4.
+Maximum number of dominoes for 4 x 4 board is 6.
+Chromosome size = 14
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-0.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-1.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-2.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-3.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-4.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-5.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-6.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-7.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-8.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-9.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-10.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-11.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-12.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-13.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-14.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-15.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-16.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-17.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-18.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-19.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-20.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-21.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-22.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-23.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-24.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-25.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-26.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-27.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-28.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-29.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-30.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-31.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-32.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-33.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-34.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-35.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-36.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-37.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-38.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-39.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-40.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-41.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-42.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-43.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-44.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-45.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-46.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-47.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-48.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-49.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-50.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-51.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-52.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-53.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-54.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-55.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-56.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-57.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-58.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-59.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-60.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-61.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-62.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-63.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-64.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-65.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-66.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-67.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-68.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-69.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-70.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-71.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-72.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-73.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-74.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-75.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-76.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-77.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-78.npy
+Writing solution: results\GA\4x4__4_holes-6_dominoes\soln-79.npy
+Running tune_ga.py with board (5 x 5):
+Maximum number of holes for 5 x 5 board is 7.
+Maximum number of dominoes for 5 x 5 board is 9.
+Chromosome size = 20
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-0.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-1.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-2.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-3.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-4.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-5.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-6.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-7.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-8.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-9.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-10.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-11.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-12.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-13.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-14.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-15.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-16.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-17.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-18.npy
+Running tune_ga.py with board (5 x 5):
+Maximum number of holes for 5 x 5 board is 7.
+Maximum number of dominoes for 5 x 5 board is 9.
+Chromosome size = 20
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-0.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-1.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-2.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-3.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-4.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-5.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-6.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-7.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-8.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-9.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-10.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-11.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-12.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-13.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-14.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-15.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-16.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-17.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-18.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-19.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-20.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-21.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-22.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-23.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-24.npy
+Running tune_ga.py with board (5 x 5):
+Maximum number of holes for 5 x 5 board is 7.
+Maximum number of dominoes for 5 x 5 board is 9.
+Chromosome size = 20
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-0.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-1.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-2.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-3.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-4.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-5.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-6.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-7.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-8.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-9.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-10.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-11.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-12.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-13.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-14.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-15.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-16.npy
+Running tune_ga.py with board (5 x 5):
+Maximum number of holes for 5 x 5 board is 7.
+Maximum number of dominoes for 5 x 5 board is 9.
+Chromosome size = 20
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-0.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-1.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-2.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-3.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-4.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-5.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-6.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-7.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-8.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-9.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-10.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-11.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-12.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-13.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-14.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-15.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-16.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-17.npy
+Running tune_ga.py with board (5 x 5):
+Maximum number of holes for 5 x 5 board is 7.
+Maximum number of dominoes for 5 x 5 board is 9.
+Chromosome size = 20
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-0.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-1.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-2.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-3.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-4.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-5.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-6.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-7.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-8.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-9.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-10.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-11.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-12.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-13.npy
+Writing solution: results\GA\5x5__7_holes-9_dominoes\soln-14.npy
+Running tune_ga.py with board (6 x 6):
+Maximum number of holes for 6 x 6 board is 12.
+Maximum number of dominoes for 6 x 6 board is 12.
+Chromosome size = 28
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         817       16.67   83.33   56.81   12.17   
+ 2         794       33.33   83.33   62.09   12.21   
+ 3         806       16.67   83.33   68.72   13.51   
+ 4         855       33.33   83.33   72.22   13.26   
+ 5         900       33.33   83.33   72.67   13.09   
+ 6         900       33.33   83.33   72.78   13.62   
+ 7         900       33.33   100.00  74.59   12.77   
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\6x6__12_holes-12_dominoes\soln-0.npy
+Running tune_ga.py with board (6 x 6):
+Maximum number of holes for 6 x 6 board is 12.
+Maximum number of dominoes for 6 x 6 board is 12.
+Chromosome size = 28
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         794       16.67   83.33   58.43   12.33   
+ 2         812       16.67   100.00  64.20   13.14   
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\6x6__12_holes-12_dominoes\soln-0.npy
+Running tune_ga.py with board (6 x 6):
+Maximum number of holes for 6 x 6 board is 12.
+Maximum number of dominoes for 6 x 6 board is 12.
+Chromosome size = 28
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         803       16.67   83.33   58.57   12.46   
+ 2         792       16.67   83.33   63.94   12.99   
+ 3         783       33.33   83.33   68.78   14.44   
+ 4         856       33.33   83.33   68.74   14.03   
+ 5         853       16.67   100.00  69.50   14.02   
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\6x6__12_holes-12_dominoes\soln-0.npy
+Running tune_ga.py with board (6 x 6):
+Maximum number of holes for 6 x 6 board is 12.
+Maximum number of dominoes for 6 x 6 board is 12.
+Chromosome size = 28
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         806       16.67   83.33   58.09   11.95   
+ 2         809       16.67   83.33   62.48   13.42   
+ 3         808       16.67   83.33   68.65   14.93   
+ 4         877       33.33   83.33   69.89   13.97   
+ 5         866       33.33   83.33   70.81   14.08   
+ 6         847       33.33   100.00  70.65   14.42   
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\6x6__12_holes-12_dominoes\soln-0.npy
+Running tune_ga.py with board (6 x 6):
+Maximum number of holes for 6 x 6 board is 12.
+Maximum number of dominoes for 6 x 6 board is 12.
+Chromosome size = 28
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         801       16.67   83.33   58.43   11.80   
+ 2         813       16.67   100.00  62.93   13.43   
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\6x6__12_holes-12_dominoes\soln-0.npy
+Running tune_ga.py with board (7 x 7):
+Maximum number of holes for 7 x 7 board is 15.
+Maximum number of dominoes for 7 x 7 board is 17.
+Chromosome size = 36
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         814       33.33   86.67   61.54   11.62   
+ 2         806       33.33   86.67   66.83   11.95   
+ 3         801       46.67   86.67   71.32   12.72   
+ 4         803       33.33   100.00  73.87   12.78   
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\7x7__15_holes-17_dominoes\soln-0.npy
+Running tune_ga.py with board (7 x 7):
+Maximum number of holes for 7 x 7 board is 15.
+Maximum number of dominoes for 7 x 7 board is 17.
+Chromosome size = 36
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         796       20.00   86.67   61.60   11.16   
+ 2         828       33.33   86.67   64.61   12.00   
+ 3         789       33.33   100.00  67.48   14.05   
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\7x7__15_holes-17_dominoes\soln-0.npy
+Running tune_ga.py with board (7 x 7):
+Maximum number of holes for 7 x 7 board is 15.
+Maximum number of dominoes for 7 x 7 board is 17.
+Chromosome size = 36
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         798       33.33   86.67   58.65   10.76   
+ 2         818       20.00   86.67   63.35   11.85   
+ 3         802       33.33   86.67   65.66   12.52   
+ 4         803       33.33   86.67   70.65   13.28   
+ 5         805       33.33   86.67   74.22   13.41   
+ 6         900       33.33   86.67   72.41   13.41   
+ 7         800       33.33   100.00  75.04   13.45   
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\7x7__15_holes-17_dominoes\soln-0.npy
+Running tune_ga.py with board (7 x 7):
+Maximum number of holes for 7 x 7 board is 15.
+Maximum number of dominoes for 7 x 7 board is 17.
+Chromosome size = 36
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         809       33.33   86.67   59.72   11.75   
+ 2         809       20.00   86.67   65.30   12.54   
+ 3         810       33.33   86.67   70.28   13.37   
+ 4         795       33.33   86.67   74.01   13.45   
+ 5         886       33.33   100.00  72.67   13.10   
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\7x7__15_holes-17_dominoes\soln-0.npy
+Running tune_ga.py with board (7 x 7):
+Maximum number of holes for 7 x 7 board is 15.
+Maximum number of dominoes for 7 x 7 board is 17.
+Chromosome size = 36
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         805       20.00   86.67   57.75   11.26   
+ 2         806       33.33   86.67   63.66   11.75   
+ 3         794       33.33   86.67   67.33   12.48   
+ 4         800       33.33   100.00  72.73   13.65   
+
+Solution(s) Found.
+Saving resultant board plots.
+Writing solution: results\GA\7x7__15_holes-17_dominoes\soln-0.npy
+Writing solution: results\GA\7x7__15_holes-17_dominoes\soln-1.npy
+Writing solution: results\GA\7x7__15_holes-17_dominoes\soln-2.npy
+Running tune_ga.py with board (8 x 8):
+Maximum number of holes for 8 x 8 board is 20.
+Maximum number of dominoes for 8 x 8 board is 22.
+Chromosome size = 46
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         822       30.00   80.00   57.90   9.79    
+ 2         809       30.00   80.00   61.00   10.74   
+ 3         793       30.00   80.00   65.10   11.32   
+ 4         812       40.00   80.00   68.16   11.45   
+ 5         855       30.00   90.00   66.61   11.55   
+ 6         828       40.00   90.00   68.18   11.37   
+ 7         849       30.00   90.00   69.29   11.05   
+ 8         827       30.00   90.00   70.92   11.05   
+ 9         789       40.00   90.00   73.61   10.74   
+ 10        798       40.00   90.00   78.29   12.10   
+
+Failed to find a solution.
+Running tune_ga.py with board (8 x 8):
+Maximum number of holes for 8 x 8 board is 20.
+Maximum number of dominoes for 8 x 8 board is 22.
+Chromosome size = 46
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         801       30.00   80.00   56.99   9.26    
+ 2         802       30.00   80.00   60.60   10.14   
+ 3         808       30.00   90.00   62.44   11.01   
+ 4         796       30.00   90.00   66.28   11.65   
+ 5         839       30.00   90.00   66.51   11.93   
+ 6         817       30.00   90.00   69.49   11.81   
+ 7         809       30.00   90.00   71.86   12.49   
+ 8         794       40.00   90.00   77.79   13.14   
+ 9         846       40.00   90.00   81.00   12.14   
+ 10        900       40.00   90.00   82.38   11.73   
+
+Failed to find a solution.
+Running tune_ga.py with board (8 x 8):
+Maximum number of holes for 8 x 8 board is 20.
+Maximum number of dominoes for 8 x 8 board is 22.
+Chromosome size = 46
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         824       30.00   80.00   55.80   9.95    
+ 2         810       30.00   90.00   59.54   10.08   
+ 3         803       30.00   90.00   63.16   10.37   
+ 4         811       40.00   90.00   65.68   11.42   
+ 5         798       30.00   90.00   68.43   12.05   
+ 6         813       40.00   90.00   70.42   11.89   
+ 7         803       40.00   90.00   74.00   13.24   
+ 8         840       40.00   90.00   77.70   14.12   
+ 9         870       40.00   90.00   79.71   14.18   
+ 10        900       30.00   90.00   82.03   13.05   
+
+Failed to find a solution.
+Running tune_ga.py with board (8 x 8):
+Maximum number of holes for 8 x 8 board is 20.
+Maximum number of dominoes for 8 x 8 board is 22.
+Chromosome size = 46
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         806       30.00   80.00   56.34   9.44    
+ 2         808       30.00   80.00   60.19   9.69    
+ 3         804       30.00   80.00   62.70   9.87    
+ 4         800       30.00   80.00   65.11   10.87   
+ 5         816       30.00   90.00   67.27   11.08   
+ 6         838       30.00   90.00   67.26   11.41   
+ 7         820       40.00   90.00   68.13   11.26   
+ 8         798       40.00   90.00   69.36   12.22   
+ 9         804       40.00   90.00   71.34   13.00   
+ 10        803       40.00   90.00   82.04   12.50   
+
+Failed to find a solution.
+Running tune_ga.py with board (8 x 8):
+Maximum number of holes for 8 x 8 board is 20.
+Maximum number of dominoes for 8 x 8 board is 22.
+Chromosome size = 46
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         808       30.00   80.00   58.01   9.71    
+ 2         791       30.00   80.00   62.12   10.37   
+ 3         814       40.00   80.00   65.70   10.65   
+ 4         821       40.00   80.00   68.77   10.88   
+ 5         863       40.00   80.00   68.89   10.80   
+ 6         841       30.00   90.00   70.84   10.74   
+ 7         851       40.00   90.00   71.89   10.43   
+ 8         824       40.00   90.00   71.87   10.49   
+ 9         810       40.00   90.00   73.32   9.91    
+ 10        821       30.00   90.00   73.63   10.79   
+
+Failed to find a solution.
+Running tune_ga.py with board (9 x 9):
+Maximum number of holes for 9 x 9 board is 27.
+Maximum number of dominoes for 9 x 9 board is 27.
+Chromosome size = 58
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         798       25.93   70.37   52.13   7.89    
+ 2         801       33.33   70.37   54.81   8.94    
+ 3         803       33.33   77.78   57.17   9.15    
+ 4         820       33.33   77.78   58.82   9.28    
+ 5         798       33.33   77.78   60.86   9.43    
+ 6         814       33.33   77.78   62.39   10.38   
+ 7         782       33.33   77.78   66.63   10.79   
+ 8         857       33.33   77.78   69.55   10.31   
+ 9         879       40.74   85.19   69.69   10.33   
+ 10        847       40.74   85.19   72.30   8.87    
+
+Failed to find a solution.
+Running tune_ga.py with board (9 x 9):
+Maximum number of holes for 9 x 9 board is 27.
+Maximum number of dominoes for 9 x 9 board is 27.
+Chromosome size = 58
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         803       33.33   70.37   51.73   8.02    
+ 2         788       33.33   70.37   55.07   8.30    
+ 3         814       33.33   70.37   55.93   9.10    
+ 4         815       25.93   70.37   58.43   9.33    
+ 5         783       33.33   77.78   61.93   9.31    
+ 6         867       25.93   77.78   61.90   9.20    
+ 7         790       33.33   77.78   64.10   8.82    
+ 8         804       33.33   77.78   65.33   9.40    
+ 9         807       33.33   77.78   68.72   10.29   
+ 10        888       33.33   77.78   69.59   10.23   
+
+Failed to find a solution.
+Running tune_ga.py with board (9 x 9):
+Maximum number of holes for 9 x 9 board is 27.
+Maximum number of dominoes for 9 x 9 board is 27.
+Chromosome size = 58
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         800       25.93   70.37   51.33   7.83    
+ 2         787       25.93   70.37   54.91   7.89    
+ 3         794       33.33   77.78   57.35   8.68    
+ 4         791       33.33   77.78   60.80   8.67    
+ 5         797       33.33   85.19   63.58   8.65    
+ 6         796       33.33   85.19   66.02   8.67    
+ 7         812       40.74   85.19   70.90   8.71    
+ 8         831       40.74   85.19   72.64   8.68    
+ 9         808       40.74   85.19   74.77   9.20    
+ 10        806       40.74   85.19   79.33   9.74    
+
+Failed to find a solution.
+Running tune_ga.py with board (9 x 9):
+Maximum number of holes for 9 x 9 board is 27.
+Maximum number of dominoes for 9 x 9 board is 27.
+Chromosome size = 58
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         789       25.93   70.37   52.08   7.94    
+ 2         795       33.33   70.37   55.30   8.10    
+ 3         789       33.33   70.37   57.84   8.48    
+ 4         797       33.33   70.37   59.06   9.19    
+ 5         846       33.33   70.37   58.78   9.42    
+ 6         828       33.33   70.37   58.66   9.48    
+ 7         839       33.33   70.37   59.12   9.74    
+ 8         823       33.33   70.37   59.08   9.67    
+ 9         862       33.33   77.78   58.78   9.28    
+ 10        801       25.93   77.78   60.23   9.86    
+
+Failed to find a solution.
+Running tune_ga.py with board (9 x 9):
+Maximum number of holes for 9 x 9 board is 27.
+Maximum number of dominoes for 9 x 9 board is 27.
+Chromosome size = 58
+Generations=10, Population=900, Crossover Probability=0.75, Mutation Rate=0.35
+
+Evaluating 900 individuals
+
+ Gen       Eval      Min     Max     Avg     Std     
+------------------------------------------------------------
+ 1         785       25.93   70.37   51.27   7.81    
+ 2         799       25.93   70.37   54.75   8.56    
+ 3         804       25.93   77.78   57.01   9.31    
+ 4         807       33.33   77.78   60.13   9.03    
+ 5         804       33.33   77.78   61.34   9.26    
+ 6         794       33.33   77.78   61.73   9.84    
+ 7         801       40.74   77.78   64.05   10.13   
+ 8         814       33.33   77.78   68.21   10.68   
+ 9         900       40.74   77.78   68.67   10.61   
+ 10        876       40.74   77.78   70.35   9.70    
+
+Failed to find a solution.
+
+Test name:               Generation
+Generations maximum    = 10
+Population size        = 900
+Cross-over probability = 0.75
+Mutation rate          = 0.35
+Solution times:          [0.0002752065658569336, 0.00014175176620483397, 6.171756984530514e-06, 2.8785428682634993e-05, 0.5057655334472656, 0.5683276335398356, inf, inf]
+Solutions found:         [2.0, 4.0, 84.0, 18.8, 1.0, 1.4, 0.0, 0.0]
+
+
+
+Plotting results to results\GA_tuning\test_Generation-10-900-0.75-0.35.png
+

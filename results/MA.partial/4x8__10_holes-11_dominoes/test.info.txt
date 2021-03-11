@@ -1,0 +1,9 @@
+The following results were generated using ma.partial.py version: 1.3, 28-01-2020.
+ - Python version: 3.7.4
+ - Test PC: Windows 10
+ - Execution time: 0.0003266334533691406s
+ - Total solutions: 168
+ - Fundamental solutions: 16
+ - Solution: 10 holes 11 dominoes
+ - Board: 4x8
+ - time to 1st solution: 1.9442467462448848e-06s

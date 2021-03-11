@@ -1,0 +1,135 @@
+Radon 4.1.0 (https://pypi.org/project/radon/)
+The hal command
+This command analyzes Python source files and computes their Halstead complexity metrics. Files can be analyzed as wholes, or in terms of their top-level functions with the -f flag.
+
+PS C:\Users\dkind\DFK\IMAT5314 - MSc Project\TheGunportProblem> radon hal .
+ba.py:
+    h1: 13
+    h2: 88
+    N1: 68
+    N2: 140
+    vocabulary: 101
+    length: 208
+    calculated_length: 616.5356987759164
+    volume: 1384.9079884123735
+    difficulty: 10.340909090909092
+    effort: 14321.207607446137
+    time: 795.6226448581187
+    bugs: 0.4616359961374578
+common.py:
+    h1: 13
+    h2: 82
+    N1: 68
+    N2: 133
+    vocabulary: 95
+    length: 201
+    calculated_length: 569.4249807145172
+    volume: 1320.5409772745206
+    difficulty: 10.542682926829269
+    effort: 13922.044815290526
+    time: 773.446934182807
+    bugs: 0.44018032575817356
+domplotlib.py:
+    h1: 5
+    h2: 53
+    N1: 41
+    N2: 78
+    vocabulary: 58
+    length: 119
+    calculated_length: 315.1894245662864
+    volume: 697.0997384201811
+    difficulty: 3.6792452830188678
+    effort: 2564.800924376138
+    time: 142.48894024311878
+    bugs: 0.2323665794733937
+findallsolns.py:
+    h1: 6
+    h2: 41
+    N1: 37
+    N2: 76
+    vocabulary: 47
+    length: 113
+    calculated_length: 235.16940719366838
+    volume: 627.6685402395731
+    difficulty: 5.560975609756097
+    effort: 3490.4494432834795
+    time: 193.9138579601933
+    bugs: 0.20922284674652436
+ga.py:
+    h1: 15
+    h2: 109
+    N1: 91
+    N2: 178
+    vocabulary: 124
+    length: 269
+    calculated_length: 796.3354503348127
+    volume: 1870.6788074940696
+    difficulty: 12.247706422018348
+    effort: 22911.52484407874
+    time: 1272.8624913377078
+    bugs: 0.6235596024980232
+ma.partial.py:
+    h1: 15
+    h2: 106
+    N1: 88
+    N2: 173
+    vocabulary: 121
+    length: 261
+    calculated_length: 771.7629271178268
+    volume: 1805.8233049286694
+    difficulty: 12.24056603773585
+    effort: 22104.299416461778
+    time: 1228.0166342478765
+    bugs: 0.6019411016428898
+ma.py:
+    h1: 16
+    h2: 164
+    N1: 139
+    N2: 276
+    vocabulary: 180
+    length: 415
+    calculated_length: 1270.638528757366
+    volume: 3109.119034976815
+    difficulty: 13.463414634146341
+    effort: 41859.3587148098
+    time: 2325.5199286005445
+    bugs: 1.0363730116589382
+reclassify.py:
+    h1: 1
+    h2: 2
+    N1: 1
+    N2: 2
+    vocabulary: 3
+    length: 3
+    calculated_length: 2.0
+    volume: 4.754887502163469
+    difficulty: 0.5
+    effort: 2.3774437510817346
+    time: 0.1320802083934297
+    bugs: 0.0015849625007211565
+results.py:
+    h1: 11
+    h2: 200
+    N1: 154
+    N2: 307
+    vocabulary: 211
+    length: 461
+    calculated_length: 1566.824985759955
+    volume: 3559.4267259940125
+    difficulty: 8.4425
+    effort: 30050.46013420445
+    time: 1669.470007455803
+    bugs: 1.1864755753313374
+tune_ga.py:
+    h1: 4
+    h2: 18
+    N1: 15
+    N2: 29
+    vocabulary: 22
+    length: 44
+    calculated_length: 83.05865002596161
+    volume: 196.21499122004107
+    difficulty: 3.2222222222222223
+    effort: 632.2483050423546
+    time: 35.12490583568636
+    bugs: 0.06540499707334703

@@ -1,0 +1,87 @@
+The following board dimensions have been tested.
+Algorithm = MA
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| m/n | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
++=====+===+===+===+===+===+===+===+===+===+====+====+====+====+====+====+====+
+| 1   |   | X | X | X | X | X | X | X | X | X  | X  | X  | X  | X  | X  | X  |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| 2   | X | X | X | X | X | X | X | X | X | X  | X  | X  | X  | X  | X  | X  |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| 3   | X | X | X | X | X | X | X | X | X | X  | X  | X  | X  | X  | X  | X  |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| 4   | X | X | X | X | X | X | X | X | X | X  | X  | X  | X  | X  | X  | X  |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| 5   | X | X | X | X | X | X | X | X | X | X  | X  | X  | X  | X  | X  | X  |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| 6   | X | X | X | X | X | X | X | X | X | X  | X  | X  | X  | X  | X  | X  |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| 7   | X | X | X | X | X | X | X | X | X | X  | X  | X  | X  | X  | X  | X  |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| 8   | X | X | X | X | X | X | X | X | X | X  | X  | X  | X  | X  | X  | X  |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| 9   | X | X | X | X | X | X | X | X | X | X  | X  | X  | X  | X  | X  | X  |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| 10  | X | X | X | X | X | X | X | X | X | X  | X  | X  | X  | X  | X  | X  |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| 11  | X | X | X | X | X | X | X | X | X | X  | X  | X  | X  | X  | X  | X  |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| 12  | X | X | X | X | X | X | X | X | X | X  | X  | X  | X  | X  | X  | X  |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| 13  | X | X | X | X | X | X | X | X | X | X  | X  | X  | X  |    | X  | X  |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| 14  | X | X | X | X | X | X | X | X | X | X  | X  | X  |    | X  | X  |    |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| 15  | X | X | X | X | X | X | X | X | X | X  | X  | X  | X  | X  | X  | X  |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+| 16  | X | X | X | X | X | X | X | X | X | X  | X  | X  | X  |    | X  | X  |
++-----+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
+
+
+\begin{table}[ht]
+\centering
+\begin{small}
+\setlength{\arrayrulewidth}{0.5pt} % thickness of the borders of the table
+\setlength{\tabcolsep}{1.0em} %  space between the text and the left/right border
+\renewcommand{\arraystretch}{1.25} % height of each row
+\arrayrulecolor{black}
+\begin{tabular}{|p{1.6em}|p{0.6em}|p{0.6em}|p{0.6em}|p{0.6em}|p{0.6em}|p{0.6em}|p{0.6em}|p{0.6em}|p{0.6em}|p{0.6em}|p{0.6em}|p{0.6em}|p{0.6em}|p{0.6em}|p{0.6em}|p{0.6em}|}
+\hline
+ \cellcolor{blue!25}\textbf{m/n} & \cellcolor{gray!60}\textbf{1} & \cellcolor{gray!60}\textbf{2} & \cellcolor{gray!60}\textbf{3} & \cellcolor{gray!60}\textbf{4} & \cellcolor{gray!60}\textbf{5} & \cellcolor{gray!60}\textbf{6} & \cellcolor{gray!60}\textbf{7} & \cellcolor{gray!60}\textbf{8} & \cellcolor{gray!60}\textbf{9} & \cellcolor{gray!60}\textbf{10} & \cellcolor{gray!60}\textbf{11} & \cellcolor{gray!60}\textbf{12} & \cellcolor{gray!60}\textbf{13} & \cellcolor{gray!60}\textbf{14} & \cellcolor{gray!60}\textbf{15} & \cellcolor{gray!60}\textbf{16} \\
+\hline
+ \cellcolor{gray!60}\textbf{1} & \cellcolor{blue!25}\textbf{ } & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+\hline
+ \cellcolor{gray!60}\textbf{2} & X & \cellcolor{blue!25}\textbf{X} & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+\hline
+ \cellcolor{gray!60}\textbf{3} & X & X & \cellcolor{blue!25}\textbf{X} & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+\hline
+ \cellcolor{gray!60}\textbf{4} & X & X & X & \cellcolor{blue!25}\textbf{X} & X & X & X & X & X & X & X & X & X & X & X & X \\
+\hline
+ \cellcolor{gray!60}\textbf{5} & X & X & X & X & \cellcolor{blue!25}\textbf{X} & X & X & X & X & X & X & X & X & X & X & X \\
+\hline
+ \cellcolor{gray!60}\textbf{6} & X & X & X & X & X & \cellcolor{blue!25}\textbf{X} & X & X & X & X & X & X & X & X & X & X \\
+\hline
+ \cellcolor{gray!60}\textbf{7} & X & X & X & X & X & X & \cellcolor{blue!25}\textbf{X} & X & X & X & X & X & X & X & X & X \\
+\hline
+ \cellcolor{gray!60}\textbf{8} & X & X & X & X & X & X & X & \cellcolor{blue!25}\textbf{X} & X & X & X & X & X & X & X & X \\
+\hline
+ \cellcolor{gray!60}\textbf{9} & X & X & X & X & X & X & X & X & \cellcolor{blue!25}\textbf{X} & X & X & X & X & X & X & X \\
+\hline
+ \cellcolor{gray!60}\textbf{10} & X & X & X & X & X & X & X & X & X & \cellcolor{blue!25}\textbf{X} & X & X & X & X & X & X \\
+\hline
+ \cellcolor{gray!60}\textbf{11} & X & X & X & X & X & X & X & X & X & X & \cellcolor{blue!25}\textbf{X} & X & X & X & X & X \\
+\hline
+ \cellcolor{gray!60}\textbf{12} & X & X & X & X & X & X & X & X & X & X & X & \cellcolor{blue!25}\textbf{X} & X & X & X & X \\
+\hline
+ \cellcolor{gray!60}\textbf{13} & X & X & X & X & X & X & X & X & X & X & X & X & \cellcolor{blue!25}\textbf{X} &   & X & X \\
+\hline
+ \cellcolor{gray!60}\textbf{14} & X & X & X & X & X & X & X & X & X & X & X & X &   & \cellcolor{blue!25}\textbf{X} & X &   \\
+\hline
+ \cellcolor{gray!60}\textbf{15} & X & X & X & X & X & X & X & X & X & X & X & X & X & X & \cellcolor{blue!25}\textbf{X} & X \\
+\hline
+ \cellcolor{gray!60}\textbf{16} & X & X & X & X & X & X & X & X & X & X & X & X & X &   & X & \cellcolor{blue!25}\textbf{X} \\
+\hline
+\end{tabular}
+\end{small}
+\caption{MA Test Coverage.}
+\label{tab:MATestCoverage.}
+\end{table}

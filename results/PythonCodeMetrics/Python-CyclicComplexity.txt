@@ -1,0 +1,122 @@
+Radon 4.1.0 (https://pypi.org/project/radon/)
+The cc command
+This command analyzes Python source files and compute Cyclomatic Complexity. The output can be filtered by specifying the -n and -x flags. By default, the complexity score is not displayed, the option -s (show complexity) toggles this behaviour. File or directories exclusion is supported through glob patterns. Every positional argument is interpreted as a path. The program then walks through its children and analyzes Python files. Every block will be ranked from A (best complexity score) to F (worst one). Ranks corresponds to complexity scores as follows:
+
+CC score	Rank	Risk
+1 - 5	A	low - simple block
+6 - 10	B	low - well structured and stable block
+11 - 20	C	moderate - slightly complex block
+21 - 30	D	more than moderate - more complex block
+31 - 40	E	high - complex block, alarming
+41+	F	very high - error-prone, unstable block
+Blocks are also classified into three types: functions, methods and classes. They’re listed by letter in the command output for convenience when scanning through a longer list of blocks:
+
+Block type	Letter
+Function	F
+Method		M
+Class		C
+
+PS C:\Users\dkind\DFK\IMAT5314 - MSc Project\TheGunportProblem> radon cc .
+ba.py
+    F 299:0 main - D
+    M 194:4 CBacktracking.isvalid - C
+    M 126:4 CBacktracking.solve - C
+    C 71:0 CBacktracking - B
+    M 173:4 CBacktracking.optimal_solution - A
+    F 269:0 ba_proc - A
+    C 45:0 Counter - A
+    M 82:4 CBacktracking.__init__ - A
+    M 114:4 CBacktracking.runp - A
+    M 50:4 Counter.__init__ - A
+    M 54:4 Counter.increment - A
+    M 62:4 Counter.value - A
+    M 108:4 CBacktracking.run - A
+    M 259:4 CBacktracking.__str__ - A
+common.py
+    F 97:0 convert2board - C
+    F 147:0 convert2chrom - B
+    F 44:0 calc_solution_holes - A
+    F 81:0 get_version_str - A
+domplotlib.py
+    M 174:4 CPlot.classify_solns - B
+    M 246:4 CPlot.convert2rgb - A
+    M 294:4 CPlot.plot - A
+    C 41:0 CPlot - A
+    M 158:4 CPlot.load_soln_info - A
+    M 275:4 CPlot.plot_all - A
+    M 94:4 CPlot.update - A
+    M 119:4 CPlot.update_results_path - A
+    M 45:4 CPlot.__init__ - A
+    M 70:4 CPlot.set_proc_num - A
+    M 78:4 CPlot.get_total_solns - A
+    M 86:4 CPlot.get_total_fundamental - A
+    M 139:4 CPlot.write_soln_to_file - A
+    M 220:4 CPlot.write_test_info - A
+    M 351:4 CPlot.__str__ - A
+findallsolns.py
+    F 120:0 domino_squares - C
+    F 22:0 findall - B
+    F 90:0 domino_rotation - B
+    F 68:0 domino_correction - A
+    F 179:0 display - A
+ga.py
+    F 376:0 main - C
+    M 225:4 CEvaluation.check_board - C
+    M 85:4 CEvaluation.eval_fitness - C
+    M 181:4 CEvaluation.get_idx - B
+    C 56:0 CEvaluation - B
+    F 308:0 init_DEAP_structures - A
+    M 276:4 CEvaluation.set_board - A
+    M 72:4 CEvaluation.__init__ - A
+    M 300:4 CEvaluation.__str__ - A
+ma.partial.py
+    F 346:0 main - C
+    M 85:4 CEvaluation.eval_fitness - C
+    M 181:4 CEvaluation.get_idx - B
+    M 225:4 CEvaluation.check_board - B
+    C 56:0 CEvaluation - B
+    F 288:0 init_DEAP_structures - A
+    M 256:4 CEvaluation.set_board - A
+    M 72:4 CEvaluation.__init__ - A
+    M 280:4 CEvaluation.__str__ - A
+ma.py
+    M 422:4 CSeed.check_board - D
+    F 621:0 main - C
+    M 86:4 CEvaluation.eval_fitness - C
+    M 182:4 CEvaluation.get_idx - B
+    M 354:4 CSeed.seed_individual - B
+    M 226:4 CEvaluation.check_board - B
+    C 290:0 CSeed - B
+    C 59:0 CEvaluation - B
+    F 546:0 init_DEAP_structures - A
+    M 257:4 CEvaluation.set_board - A
+    M 335:4 CSeed.process - A
+    M 519:4 CSeed.set_board - A
+    M 74:4 CEvaluation.__init__ - A
+    M 281:4 CEvaluation.__str__ - A
+    M 319:4 CSeed.__init__ - A
+    M 538:4 CSeed.get_population - A
+reclassify.py
+    F 37:0 main - A
+results.py
+    F 655:0 all_permutations - C
+    M 256:4 CResults.create_colour_chart - B
+    M 420:4 CResults.extract_integer_sequences - B
+    F 606:0 get_latex_permutations - B
+    M 192:4 CResults.create_test_coverage - B
+    M 503:4 CResults.get_latex_coverage - B
+    M 554:4 CResults.get_latex_sequence - B
+    C 52:0 CResults - B
+    M 56:4 CResults.__init__ - B
+    M 160:4 CResults.correct_solns - A
+    M 348:4 CResults.create_time_graph - A
+    F 733:0 main - A
+    M 105:4 CResults.extract_solns - A
+    M 98:4 CResults.empty - A
+tune_ga.py
+    M 63:4 CTest.__init__ - B
+    F 139:0 main - B
+    C 50:0 CTest - A
+    M 94:4 CTest.plot - A
+    M 84:4 CTest.reset_params - A
+    M 127:4 CTest.__str__ - A

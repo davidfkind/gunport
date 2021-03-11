@@ -1,0 +1,9 @@
+The following results were generated using ga.py version: 2.8, 03-10-2019.
+ - Python version: 3.7.4
+ - Test PC: Windows 10
+ - Execution time: 10.244948387145996s
+ - Total solutions: 1
+ - Fundamental solutions: 1
+ - Solution: 28 holes 28 dominoes
+ - Board: 12x7
+ - time to 1st solution: 10.244948387145996s
